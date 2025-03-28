@@ -26,6 +26,12 @@
   --danger-color: #e65454;
   --danger-dark: #c63232;
   --danger-light: #f08383;
+
+
+  --bs-text-color: #212529;     /* Color del texto */
+  --bs-bg-color: #f8f9fa;       /* Color de fondo */
+  --bs-border-color: #e0e0e0;   /* Color de los bordes */
+  
   
   /* Colores para las tarjetas de estadísticas (gradientes) */
   --card-stats-primary-start: #42a5cc;
@@ -85,6 +91,10 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin-bottom: 1rem;
+}
+
+h1 {
+  color: var(--primary-color) !important;
 }
 
 /* Utilidades comunes */

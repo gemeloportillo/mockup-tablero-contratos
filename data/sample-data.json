@@ -1,0 +1,566 @@
+{
+  "publisher": {
+    "name": "Administración de Contrataciones Públicas",
+    "uri": "https://contrataciones.example.org",
+    "scheme": "OCDS"
+  },
+  "publishedDate": "2025-03-26T12:00:00Z",
+  "version": "1.1",
+  "extensions": [],
+  "releases": [
+    {
+      "ocid": "ocds-abcdef-CON-2025-0125",
+      "id": "CON-2025-0125-01",
+      "date": "2025-03-15T10:30:00Z",
+      "tag": ["contract"],
+      "initiationType": "tender",
+      "parties": [
+        {
+          "id": "GOV-001",
+          "name": "Ministerio de Obras Públicas",
+          "identifier": {
+            "scheme": "GOV-ID",
+            "id": "GOV-001",
+            "legalName": "Ministerio de Obras Públicas"
+          },
+          "address": {
+            "streetAddress": "Avenida Central 123",
+            "locality": "Ciudad Capital",
+            "region": "Región Central",
+            "postalCode": "10001",
+            "countryName": "País Ejemplo"
+          },
+          "contactPoint": {
+            "name": "Departamento de Contrataciones",
+            "email": "contrataciones@mop.example.org",
+            "telephone": "+1234567890"
+          },
+          "roles": ["buyer", "procuringEntity"]
+        },
+        {
+          "id": "SUP-CON-001",
+          "name": "Constructora Hernández S.A.",
+          "identifier": {
+            "scheme": "COMPANY-ID",
+            "id": "CON-789456",
+            "legalName": "Constructora Hernández S.A."
+          },
+          "address": {
+            "streetAddress": "Calle Industrial 456",
+            "locality": "Ciudad Comercial",
+            "region": "Región Norte",
+            "postalCode": "20002",
+            "countryName": "País Ejemplo"
+          },
+          "contactPoint": {
+            "name": "Departamento Comercial",
+            "email": "ventas@constructorahernandez.example",
+            "telephone": "+1234567891"
+          },
+          "roles": ["supplier"]
+        }
+      ],
+      "buyer": {
+        "id": "GOV-001",
+        "name": "Ministerio de Obras Públicas"
+      },
+      "planning": {
+        "budget": {
+          "id": "BUD-2025-INF-125",
+          "description": "Presupuesto para infraestructura vial 2025",
+          "amount": {
+            "amount": 1500000.00,
+            "currency": "USD"
+          }
+        },
+        "rationale": "Mejoramiento de la infraestructura vial en zonas urbanas"
+      },
+      "tender": {
+        "id": "TEN-2025-0125",
+        "title": "Construcción de puente vehicular",
+        "description": "Construcción de puente vehicular de 120m en zona urbana",
+        "status": "active",
+        "procuringEntity": {
+          "id": "GOV-001",
+          "name": "Ministerio de Obras Públicas"
+        },
+        "value": {
+          "amount": 1250000.00,
+          "currency": "USD"
+        },
+        "procurementMethod": "open",
+        "procurementMethodDetails": "Licitación Pública",
+        "mainProcurementCategory": "works",
+        "submissionMethod": ["electronicSubmission"],
+        "tenderPeriod": {
+          "startDate": "2025-01-15T00:00:00Z",
+          "endDate": "2025-02-15T23:59:59Z"
+        },
+        "items": [
+          {
+            "id": "ITEM-001",
+            "description": "Construcción de puente vehicular de 120m de longitud",
+            "classification": {
+              "scheme": "UNSPSC",
+              "id": "95121500",
+              "description": "Edificios y estructuras de transporte"
+            },
+            "quantity": 1,
+            "unit": {
+              "name": "Unidad",
+              "value": {
+                "amount": 1250000.00,
+                "currency": "USD"
+              }
+            }
+          }
+        ]
+      },
+      "awards": [
+        {
+          "id": "AWD-2025-0125",
+          "title": "Adjudicación para construcción de puente vehicular",
+          "description": "Adjudicación del contrato para la construcción de puente vehicular de 120m",
+          "status": "active",
+          "date": "2025-03-01T14:30:00Z",
+          "value": {
+            "amount": 1250000.00,
+            "currency": "USD"
+          },
+          "suppliers": [
+            {
+              "id": "SUP-CON-001",
+              "name": "Constructora Hernández S.A."
+            }
+          ],
+          "items": [
+            {
+              "id": "ITEM-001",
+              "description": "Construcción de puente vehicular de 120m de longitud",
+              "classification": {
+                "scheme": "UNSPSC",
+                "id": "95121500",
+                "description": "Edificios y estructuras de transporte"
+              },
+              "quantity": 1,
+              "unit": {
+                "name": "Unidad",
+                "value": {
+                  "amount": 1250000.00,
+                  "currency": "USD"
+                }
+              }
+            }
+          ],
+          "contractPeriod": {
+            "startDate": "2025-03-15T00:00:00Z",
+            "endDate": "2025-09-15T23:59:59Z",
+            "durationInDays": 180
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "id": "CON-2025-0125",
+          "awardID": "AWD-2025-0125",
+          "title": "Contrato para construcción de puente vehicular",
+          "description": "Contrato para la construcción de puente vehicular de 120m en zona urbana",
+          "status": "active",
+          "period": {
+            "startDate": "2025-03-15T00:00:00Z",
+            "endDate": "2025-09-15T23:59:59Z",
+            "durationInDays": 180
+          },
+          "value": {
+            "amount": 1250000.00,
+            "currency": "USD"
+          },
+          "dateSigned": "2025-03-15T10:30:00Z",
+          "items": [
+            {
+              "id": "ITEM-001",
+              "description": "Construcción de puente vehicular de 120m de longitud",
+              "classification": {
+                "scheme": "UNSPSC",
+                "id": "95121500",
+                "description": "Edificios y estructuras de transporte"
+              },
+              "quantity": 1,
+              "unit": {
+                "name": "Unidad",
+                "value": {
+                  "amount": 1250000.00,
+                  "currency": "USD"
+                }
+              }
+            }
+          ],
+          "implementation": {
+            "transactions": [
+              {
+                "id": "TRX-2025-0125-01",
+                "source": "https://tesoreria.example.org/pagos/12345",
+                "date": "2025-03-20T15:45:00Z",
+                "value": {
+                  "amount": 375000.00,
+                  "currency": "USD"
+                },
+                "payer": {
+                  "id": "GOV-001",
+                  "name": "Ministerio de Obras Públicas"
+                },
+                "payee": {
+                  "id": "SUP-CON-001", 
+                  "name": "Constructora Hernández S.A."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ocid": "ocds-abcdef-CON-2025-0124",
+      "id": "CON-2025-0124-01",
+      "date": "2025-03-12T14:15:00Z",
+      "tag": ["contract"],
+      "initiationType": "tender",
+      "parties": [
+        {
+          "id": "GOV-002",
+          "name": "Ministerio de Tecnología",
+          "identifier": {
+            "scheme": "GOV-ID",
+            "id": "GOV-002",
+            "legalName": "Ministerio de Tecnología e Innovación"
+          },
+          "roles": ["buyer", "procuringEntity"]
+        },
+        {
+          "id": "SUP-TECH-001",
+          "name": "TechSolutions Inc.",
+          "identifier": {
+            "scheme": "COMPANY-ID",
+            "id": "TECH-123456",
+            "legalName": "TechSolutions Inc."
+          },
+          "roles": ["supplier"]
+        }
+      ],
+      "buyer": {
+        "id": "GOV-002",
+        "name": "Ministerio de Tecnología"
+      },
+      "tender": {
+        "id": "TEN-2025-0124",
+        "title": "Sistema de gestión documental digital",
+        "description": "Implementación de sistema de gestión documental digital para entidades gubernamentales",
+        "status": "active",
+        "procuringEntity": {
+          "id": "GOV-002",
+          "name": "Ministerio de Tecnología"
+        },
+        "value": {
+          "amount": 890500.00,
+          "currency": "USD"
+        },
+        "procurementMethod": "selective",
+        "procurementMethodDetails": "Invitación a Cuando Menos Tres Personas",
+        "mainProcurementCategory": "services"
+      },
+      "awards": [
+        {
+          "id": "AWD-2025-0124",
+          "title": "Adjudicación para sistema de gestión documental",
+          "status": "active",
+          "date": "2025-03-05T11:20:00Z",
+          "value": {
+            "amount": 890500.00,
+            "currency": "USD"
+          },
+          "suppliers": [
+            {
+              "id": "SUP-TECH-001",
+              "name": "TechSolutions Inc."
+            }
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "CON-2025-0124",
+          "awardID": "AWD-2025-0124",
+          "title": "Contrato para sistema de gestión documental",
+          "status": "active",
+          "value": {
+            "amount": 890500.00,
+            "currency": "USD"
+          },
+          "dateSigned": "2025-03-12T14:15:00Z"
+        }
+      ]
+    },
+    {
+      "ocid": "ocds-abcdef-CON-2025-0123",
+      "id": "CON-2025-0123-01",
+      "date": "2025-03-10T09:45:00Z",
+      "tag": ["contract"],
+      "initiationType": "tender",
+      "parties": [
+        {
+          "id": "GOV-003",
+          "name": "Ministerio de Transporte",
+          "identifier": {
+            "scheme": "GOV-ID",
+            "id": "GOV-003",
+            "legalName": "Ministerio de Transporte y Logística"
+          },
+          "roles": ["buyer", "procuringEntity"]
+        },
+        {
+          "id": "SUP-LOG-001",
+          "name": "Grupo Logístico Internacional",
+          "identifier": {
+            "scheme": "COMPANY-ID",
+            "id": "LOG-987654",
+            "legalName": "Grupo Logístico Internacional S.A."
+          },
+          "roles": ["supplier"]
+        }
+      ],
+      "buyer": {
+        "id": "GOV-003",
+        "name": "Ministerio de Transporte"
+      },
+      "tender": {
+        "id": "TEN-2025-0123",
+        "title": "Servicios de logística para mercancías",
+        "status": "active",
+        "procuringEntity": {
+          "id": "GOV-003",
+          "name": "Ministerio de Transporte"
+        },
+        "value": {
+          "amount": 422800.00,
+          "currency": "USD"
+        },
+        "procurementMethod": "open",
+        "procurementMethodDetails": "Licitación Pública",
+        "mainProcurementCategory": "services"
+      },
+      "awards": [
+        {
+          "id": "AWD-2025-0123",
+          "status": "active",
+          "date": "2025-03-01T16:45:00Z",
+          "value": {
+            "amount": 422800.00,
+            "currency": "USD"
+          },
+          "suppliers": [
+            {
+              "id": "SUP-LOG-001",
+              "name": "Grupo Logístico Internacional"
+            }
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "CON-2025-0123",
+          "awardID": "AWD-2025-0123",
+          "status": "active",
+          "value": {
+            "amount": 422800.00,
+            "currency": "USD"
+          },
+          "dateSigned": "2025-03-10T09:45:00Z"
+        }
+      ]
+    },
+    {
+      "ocid": "ocds-abcdef-CON-2025-0122",
+      "id": "CON-2025-0122-01",
+      "date": "2025-03-05T10:30:00Z",
+      "tag": ["contract"],
+      "initiationType": "tender",
+      "parties": [
+        {
+          "id": "GOV-004",
+          "name": "Ministerio de Educación",
+          "identifier": {
+            "scheme": "GOV-ID",
+            "id": "GOV-004",
+            "legalName": "Ministerio de Educación y Cultura"
+          },
+          "roles": ["buyer", "procuringEntity"]
+        },
+        {
+          "id": "SUP-SERV-001",
+          "name": "Servicios Integrales S.A.",
+          "identifier": {
+            "scheme": "COMPANY-ID",
+            "id": "SERV-456123",
+            "legalName": "Servicios Integrales S.A."
+          },
+          "roles": ["supplier"]
+        }
+      ],
+      "buyer": {
+        "id": "GOV-004",
+        "name": "Ministerio de Educación"
+      },
+      "tender": {
+        "id": "TEN-2025-0122",
+        "title": "Mantenimiento de instituciones educativas",
+        "status": "active",
+        "procuringEntity": {
+          "id": "GOV-004",
+          "name": "Ministerio de Educación"
+        },
+        "value": {
+          "amount": 150750.00,
+          "currency": "USD"
+        },
+        "procurementMethod": "limited",
+        "procurementMethodDetails": "Licitación Limitada",
+        "mainProcurementCategory": "services"
+      },
+      "awards": [
+        {
+          "id": "AWD-2025-0122",
+          "status": "pending",
+          "date": "2025-03-01T13:20:00Z",
+          "value": {
+            "amount": 150750.00,
+            "currency": "USD"
+          },
+          "suppliers": [
+            {
+              "id": "SUP-SERV-001",
+              "name": "Servicios Integrales S.A."
+            }
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "CON-2025-0122",
+          "awardID": "AWD-2025-0122",
+          "status": "pending",
+          "value": {
+            "amount": 150750.00,
+            "currency": "USD"
+          },
+          "dateSigned": "2025-03-05T10:30:00Z"
+        }
+      ]
+    },
+    {
+      "ocid": "ocds-abcdef-CON-2025-0121",
+      "id": "CON-2025-0121-01",
+      "date": "2025-03-01T11:25:00Z",
+      "tag": ["contract"],
+      "initiationType": "tender",
+      "parties": [
+        {
+          "id": "GOV-005",
+          "name": "Ministerio de Salud",
+          "identifier": {
+            "scheme": "GOV-ID",
+            "id": "GOV-005",
+            "legalName": "Ministerio de Salud Pública"
+          },
+          "roles": ["buyer", "procuringEntity"]
+        },
+        {
+          "id": "SUP-MED-001",
+          "name": "Medical Supplies Corp.",
+          "identifier": {
+            "scheme": "COMPANY-ID",
+            "id": "MED-789123",
+            "legalName": "Medical Supplies Corporation"
+          },
+          "roles": ["supplier"]
+        }
+      ],
+      "buyer": {
+        "id": "GOV-005",
+        "name": "Ministerio de Salud"
+      },
+      "tender": {
+        "id": "TEN-2025-0121",
+        "title": "Suministro de equipos médicos",
+        "status": "active",
+        "procuringEntity": {
+          "id": "GOV-005",
+          "name": "Ministerio de Salud"
+        },
+        "value": {
+          "amount": 320000.00,
+          "currency": "USD"
+        },
+        "procurementMethod": "direct",
+        "procurementMethodDetails": "Adjudicación Directa",
+        "mainProcurementCategory": "goods"
+      },
+      "awards": [
+        {
+          "id": "AWD-2025-0121",
+          "status": "active",
+          "date": "2025-02-25T14:30:00Z",
+          "value": {
+            "amount": 320000.00,
+            "currency": "USD"
+          },
+          "suppliers": [
+            {
+              "id": "SUP-MED-001",
+              "name": "Medical Supplies Corp."
+            }
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "CON-2025-0121",
+          "awardID": "AWD-2025-0121",
+          "status": "active",
+          "value": {
+            "amount": 320000.00,
+            "currency": "USD"
+          },
+          "dateSigned": "2025-03-01T11:25:00Z"
+        }
+      ]
+    }
+  ],
+  "contractStats": {
+    "totalContracts": 1283,
+    "totalValue": 125984230.00,
+    "totalSuppliers": 87,
+    "activeTenders": 42,
+    "contractsByCompany": [
+      {"company": "Constructora Hernández S.A.", "contracts": 45, "value": 24500000.00},
+      {"company": "TechSolutions Inc.", "contracts": 39, "value": 19500000.00},
+      {"company": "Grupo Logístico Internacional", "contracts": 27, "value": 12500000.00},
+      {"company": "Servicios Integrales S.A.", "contracts": 25, "value": 9800000.00},
+      {"company": "Medical Supplies Corp.", "contracts": 21, "value": 8200000.00},
+      {"company": "Ingeniería Avanzada", "contracts": 18, "value": 7500000.00},
+      {"company": "Transportes Unidos", "contracts": 15, "value": 6300000.00},
+      {"company": "Consultores Asociados", "contracts": 12, "value": 5200000.00}
+    ],
+    "procurementMethods": [
+      {"method": "open", "count": 578, "percentage": 45},
+      {"method": "selective", "count": 321, "percentage": 25},
+      {"method": "direct", "count": 257, "percentage": 20},
+      {"method": "limited", "count": 127, "percentage": 10}
+    ],
+    "categoriesMonthly": {
+      "months": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+      "goods": [42, 35, 50, 45, 60, 55, 65, 70, 65, 75, 70, 80],
+      "services": [25, 30, 35, 40, 45, 50, 40, 45, 55, 50, 60, 65],
+      "works": [10, 15, 20, 15, 25, 30, 35, 25, 30, 35, 40, 45]
+    }
+  }
+}

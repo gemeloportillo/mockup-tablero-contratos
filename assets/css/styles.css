@@ -1,0 +1,577 @@
+/* 
+ * styles.css - Estilos generales del sitio
+ * Dashboard de Contratación Pública
+ */
+
+/* Variables CSS para fácil personalización */
+:root {
+  /* Colores principales actualizados con base en #42a5cc */
+  --primary-color: #42a5cc;
+  --primary-dark: #1e7899;
+  --primary-light: #80c9df;
+  
+  /* Colores complementarios armonizados */
+  --success-color: #42cc8f;
+  --success-dark: #2a9f6d;
+  --success-light: #7ae2b5;
+  
+  --info-color: #42b8cc;
+  --info-dark: #2a8f9f;
+  --info-light: #7ad9e2;
+  
+  --warning-color: #e6c154;
+  --warning-dark: #c69f32;
+  --warning-light: #f0d683;
+  
+  --danger-color: #e65454;
+  --danger-dark: #c63232;
+  --danger-light: #f08383;
+  
+  /* Colores para las tarjetas de estadísticas (gradientes) */
+  --card-stats-primary-start: #42a5cc;
+  --card-stats-primary-end: #1e7899;
+  
+  --card-stats-success-start: #42cc8f;
+  --card-stats-success-end: #2a9f6d;
+  
+  --card-stats-info-start: #42b8cc;
+  --card-stats-info-end: #2a8f9f;
+  
+  --card-stats-warning-start: #e6c154;
+  --card-stats-warning-end: #c69f32;
+  
+  /* Colores de fondo y texto */
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --text-light: #6c757d;
+  --text-very-light: #aaa;
+  
+  /* Border y sombras */
+  --border-color: #e0e0e0;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /* Tipografía */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 14px;
+  --font-size-small: 12px;
+  --font-size-heading: 1.2rem;
+}
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Utilidades comunes */
+.font-weight-bold {
+  font-weight: 600 !important;
+}
+
+.text-xs {
+  font-size: var(--font-size-small);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow) !important;
+}
+
+/* Estilos de tarjetas */
+.card {
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+}
+
+/* Gradientes para las tarjetas de resumen */
+.bg-gradient-primary {
+  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.bg-gradient-success {
+  background: linear-gradient(to right, var(--success-color), var(--success-dark));
+  color: white;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(to right, var(--info-color), var(--info-dark));
+  color: white;
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(to right, var(--warning-color), var(--warning-dark));
+  color: white;
+}
+
+.bg-gradient-danger {
+  background: linear-gradient(to right, var(--danger-color), var(--danger-dark));
+  color: white;
+}
+
+/* Estilos para tablas */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.table th {
+  font-weight: 500;
+  border-top: none;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Badges */
+.badge {
+  padding: 0.4em 0.7em;
+  font-size: 80%;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.badge.bg-success {
+  background-color: var(--success-color) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--warning-color) !important;
+  color: #212529;
+}
+
+.badge.bg-danger {
+  background-color: var(--danger-color) !important;
+}
+
+/* Botones */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-sm {
+  font-size: var(--font-size-small);
+  padding: 0.25rem 0.5rem;
+}
+
+.btn-outline-secondary {
+  color: var(--text-light);
+  border-color: var(--border-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: #f5f5f5;
+  color: var(--text-color);
+}
+
+/* Progress bars */
+.progress {
+  height: 8px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-color: #e9ecef;
+}
+
+.progress-bar {
+  border-radius: 10px;
+}
+
+/* Forms */
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-base);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.15);
+}
+
+.form-control-sm, .form-select-sm {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-size-small);
+  border-radius: 6px;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+  font-size: var(--font-size-small);
+  color: var(--text-light);
+}
+
+.form-check-input {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2em;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Utilities */
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Charts container */
+.chart-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+/* Utility classes for spacing and borders */
+.rounded {
+  border-radius: var(--border-radius) !important;
+}
+
+.border-left-primary {
+  border-left: 4px solid var(--primary-color) !important;
+}
+
+.border-left-success {
+  border-left: 4px solid var(--success-color) !important;
+}
+
+.border-left-info {
+  border-left: 4px solid var(--info-color) !important;
+}
+
+.border-left-warning {
+  border-left: 4px solid var(--warning-color) !important;
+}
+
+.border-left-danger {
+  border-left: 4px solid var(--danger-color) !important;
+}
+
+/* Accordion styling */
+.accordion-button:not(.collapsed) {
+  background-color: #f8f9ff;
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: #eee;
+}
+
+.accordion-item {
+  border: 1px solid var(--border-color);
+  margin-bottom: 10px;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+/* Preloader */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* Font icons general styling */
+.fas, .far, .fab, .bi {
+  vertical-align: middle;
+}
+
+.card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: none;
+  font-weight: bold;
+}
+.bg-gradient-primary {
+  background: linear-gradient(to right, #4e73df, #224abe);
+  color: white;
+}
+.bg-gradient-success {
+  background: linear-gradient(to right, #1cc88a, #13855c);
+  color: white;
+}
+.bg-gradient-info {
+  background: linear-gradient(to right, #36b9cc, #258391);
+  color: white;
+}
+.bg-gradient-warning {
+  background: linear-gradient(to right, #f6c23e, #dda20a);
+  color: white;
+}
+.text-xs {
+  font-size: 0.7rem;
+}
+.progress-sm {
+  height: 8px;
+}
+.sidebar {
+  background: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  color: white;
+  min-height: 100vh;
+}
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+}
+.sidebar .nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.sidebar .nav-link.active {
+  color: white;
+  font-weight: bold;
+}
+.sidebar-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 1rem 0;
+}
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1rem;
+}
+.chart-container {
+  position: relative;
+  height: 320px;
+}
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+
+/* Estilos generales */
+.card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(to right, #4e73df, #224abe);
+  color: white;
+}
+
+.bg-gradient-success {
+  background: linear-gradient(to right, #1cc88a, #13855c);
+  color: white;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(to right, #36b9cc, #258391);
+  color: white;
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(to right, #f6c23e, #dda20a);
+  color: white;
+}
+
+.text-xs {
+  font-size: 0.7rem;
+}
+
+.progress-sm {
+  height: 8px;
+}
+
+/* Estilos del sidebar */
+.sidebar {
+  background: linear-gradient(180deg, #42a5cc 10%, #1e7899 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+}
+
+.sidebar .nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 1rem 0;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1rem;
+}
+
+/* Tablas */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Contenedores de gráficos */
+.chart-container {
+  position: relative;
+  height: 320px;
+}
+
+/* Notificaciones Toast */
+.toast {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de gradientes para tarjetas de estadísticas */
+.bg-gradient-primary {
+  background: linear-gradient(to right, var(--card-stats-primary-start), var(--card-stats-primary-end));
+  color: white;
+}
+
+.bg-gradient-success {
+  background: linear-gradient(to right, var(--card-stats-success-start), var(--card-stats-success-end));
+  color: white;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(to right, var(--card-stats-info-start), var(--card-stats-info-end));
+  color: white;
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(to right, var(--card-stats-warning-start), var(--card-stats-warning-end));
+  color: white;
+}
+
+/* Añadir hover effect para mejorar la interactividad */
+.card.bg-gradient-primary:hover,
+.card.bg-gradient-success:hover,
+.card.bg-gradient-info:hover,
+.card.bg-gradient-warning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}

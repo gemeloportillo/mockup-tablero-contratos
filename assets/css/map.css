@@ -1,0 +1,123 @@
+/* Estilos para el mapa */
+#mexico-map {
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+
+.state {
+  fill: #e0e0e0;
+  stroke: #ffffff;
+  stroke-width: 1px;
+  transition: fill 0.3s;
+}
+
+.state:hover {
+  cursor: pointer;
+}
+
+/* Clases para las densidades de contratos */
+.state.density-low {
+  fill: #c2e6f2;
+}
+
+.state.density-medium {
+  fill: #80c9df;
+}
+
+.state.density-high {
+  fill: #42a5cc;
+}
+
+.state.density-very-high {
+  fill: #1e7899;
+}
+
+.state:hover {
+  opacity: 0.8;
+}
+
+.state-selected {
+  stroke: #333 !important;
+  stroke-width: 2px !important;
+}
+
+/* Tooltip del mapa */
+.map-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 1000;
+  display: none;
+}
+
+/* Indicador de carga */
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Leyenda del mapa */
+.map-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.density-low { background-color: #c2e6f2; }
+.density-medium { background-color: #80c9df; }
+.density-high { background-color: #42a5cc; }
+.density-very-high { background-color: #1e7899; }
+
+/* Controles de zoom */
+.zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.zoom-controls button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}

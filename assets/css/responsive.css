@@ -1,0 +1,263 @@
+/* 
+ * responsive.css - Estilos para responsividad
+ * Dashboard de Contratación Pública
+ */
+
+/* Estilos específicos para dispositivos móviles pequeños */
+@media (max-width: 576px) {
+  .sidebar {
+      min-height: auto;
+      position: static;
+      width: 100%;
+  }
+
+  .logo {
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+  }
+
+  .card-body {
+      padding: 1rem;
+  }
+
+  .filter-container {
+      padding: 15px;
+  }
+
+  .filter-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+  }
+
+  .btn-filter, .btn-reset {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .chart-container {
+      height: 250px;
+  }
+
+  .toggle-filters {
+      font-size: 12px;
+  }
+
+  .table-responsive {
+      font-size: 12px;
+  }
+
+  .active-filters {
+      flex-wrap: wrap;
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 577px) and (max-width: 991px) {
+  .sidebar {
+      min-height: auto;
+  }
+
+  .chart-container {
+      height: 280px;
+  }
+
+  .filter-container {
+      padding: 15px;
+  }
+}
+
+/* Estilos para dispositivos de tamaño mediano */
+@media (max-width: 768px) {
+  .col-md-3.mb-2 {
+      margin-bottom: 1rem !important;
+  }
+
+  .range-container {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .range-container span {
+      align-self: center;
+  }
+
+  .card-stats .text-xs {
+      font-size: 10px;
+  }
+
+  .card-stats .h5 {
+      font-size: 1.2rem;
+  }
+
+  .dropdown-menu {
+      position: fixed;
+      top: auto;
+      left: 0;
+      right: 0;
+      width: 100%;
+      bottom: 0;
+      margin: 0;
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+  }
+}
+
+/* Estilos para dispositivos grandes y monitores */
+@media (min-width: 992px) {
+  .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+  }
+
+  .main-content {
+      margin-left: 16.666667%; /* col-md-2 width */
+  }
+
+  .col-lg-8 .card, .col-lg-4 .card {
+      height: 100%;
+  }
+}
+
+/* Ajustes específicos para la barra lateral en diferentes tamaños */
+@media (max-width: 991px) {
+  .sidebar {
+      background: linear-gradient(90deg, #4e73df 10%, #224abe 100%);
+  }
+
+  .sidebar .nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .sidebar .nav-item {
+      width: auto;
+  }
+
+  .sidebar-divider {
+      display: none;
+  }
+}
+
+/* Orientación landscape para dispositivos móviles */
+@media (max-width: 991px) and (orientation: landscape) {
+  .chart-container {
+      height: 200px;
+  }
+}
+
+/* Ajustes para dispositivos con pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .card-stats .h5 {
+      font-size: 1rem;
+  }
+
+  .card-stats .col-auto i {
+      font-size: 1.2rem;
+  }
+
+  .btn-sm {
+      padding: 0.2rem 0.4rem;
+      font-size: 0.7rem;
+  }
+}
+
+/* Ajustes de impresión */
+@media print {
+  .sidebar, .filter-container, .card-footer, .dropdown, .btn-filter, .btn-reset {
+      display: none !important;
+  }
+
+  .col-md-10 {
+      width: 100% !important;
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+  }
+
+  .card {
+      border: 1px solid #ddd !important;
+      box-shadow: none !important;
+  }
+
+  .chart-container {
+      height: 400px !important;
+      page-break-inside: avoid;
+  }
+
+  body {
+      font-size: 12pt;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+  }
+
+  table {
+      page-break-inside: avoid;
+  }
+
+  @page {
+      margin: 1cm;
+  }
+}
+
+/* Ajustes para dispositivos de alta resolución */
+@media (min-width: 1400px) {
+  .container {
+      max-width: 1320px;
+  }
+
+  .chart-container {
+      height: 400px;
+  }
+}
+
+/* Ajustes para modo oscuro si el usuario lo tiene configurado */
+@media (prefers-color-scheme: dark) {
+  body.auto-dark-mode {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+  }
+
+  body.auto-dark-mode .card {
+      background-color: #2c2c2c;
+      border-color: #444;
+  }
+
+  body.auto-dark-mode .card-header {
+      background-color: #333;
+      border-color: #444;
+  }
+
+  body.auto-dark-mode .table {
+      color: #f0f0f0;
+  }
+
+  body.auto-dark-mode .table th,
+  body.auto-dark-mode .table td {
+      border-color: #444;
+  }
+
+  body.auto-dark-mode .filter-container {
+      background-color: #2c2c2c;
+      border-color: #444;
+  }
+
+  body.auto-dark-mode .filter-badge {
+      background-color: #444;
+      color: #f0f0f0;
+      border-color: #555;
+  }
+
+  body.auto-dark-mode .btn-reset {
+      background-color: #333;
+      color: #f0f0f0;
+      border-color: #555;
+  }
+}

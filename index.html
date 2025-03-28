@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Seguimiento a la Contratación Pública</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- D3.js para el mapa -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link href="assets/css/map.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 px-0 sidebar">
+                <div class="logo text-center">
+                    <i class="fas fa-file-contract me-2"></i> PDN
+                </div>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                        </a>
+                    </li>
+                    <div class="sidebar-divider"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-folder-open me-2"></i> Contratos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-building me-2"></i> Empresas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-gavel me-2"></i> Licitaciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-award me-2"></i> Adjudicaciones
+                        </a>
+                    </li>
+                    <div class="sidebar-divider"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-cog me-2"></i> Configuración
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10 p-4">
+                <h1 class="h3 mb-4">Tablero de Seguimiento a la Contratación Pública</h1>
+                
+                <!-- Resumen de Estadísticas -->
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-gradient-primary text-white mb-4">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs text-uppercase mb-1">Contratos Totales</div>
+                                        <div class="h5 mb-0">1,283</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-file-contract fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-gradient-success text-white mb-4">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs text-uppercase mb-1">Valor Total (USD)</div>
+                                        <div class="h5 mb-0">$125,984,230</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-dollar-sign fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-gradient-info text-white mb-4">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs text-uppercase mb-1">Empresas Adjudicadas</div>
+                                        <div class="h5 mb-0">87</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-building fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-gradient-warning text-white mb-4">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-xs text-uppercase mb-1">Licitaciones Activas</div>
+                                        <div class="h5 mb-0">42</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-gavel fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Mapa de México -->
+                    <div class="col-lg-8">
+                        <div class="card shadow mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold">Distribución Regional de Contratos</h6>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
+                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
+                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body position-relative">
+                                <!-- Contenedor del mapa -->
+                                <div id="mexico-map"></div>
+                                <!-- Tooltip para el mapa -->
+                                <div id="map-tooltip" class="map-tooltip" style="display: none;"></div>
+                                <!-- Leyenda del mapa -->
+                                <div class="map-legend">
+                                    <div class="legend-title mb-2">Contratos por Estado</div>
+                                    <div class="legend-item">
+                                        <span class="legend-color density-low"></span>
+                                        <span>Menos de 50</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color density-medium"></span>
+                                        <span>50 - 100</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color density-high"></span>
+                                        <span>101 - 150</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color density-very-high"></span>
+                                        <span>Más de 150</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráfico de Distribución por Método de Contratación -->
+                    <div class="col-lg-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold">Métodos de Contratación</h6>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
+                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
+                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="procurementMethodChart"></canvas>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <small id="region-title">Datos a nivel nacional</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Contratos Recientes -->
+                    <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header">
+                                <h6 class="m-0 font-weight-bold">Contratos Recientes</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover"  id="recentContractsTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Proveedor</th>
+                                                <th>Monto (USD)</th>
+                                                <th>Fecha</th>
+                                                <th>Estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                              <!-- Aquí se cargarán dinámicamente los contratos -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progreso de Licitaciones -->
+                    <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header">
+                                <h6 class="m-0 font-weight-bold">Progreso de Licitaciones</h6>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="small font-weight-bold">Construcción Hospital Regional <span class="float-end">20%</span></h4>
+                                <div class="progress progress-sm mb-4">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Equipamiento Escuelas Públicas <span class="float-end">40%</span></h4>
+                                <div class="progress progress-sm mb-4">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Sistema de Agua Potable <span class="float-end">60%</span></h4>
+                                <div class="progress progress-sm mb-4">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Servicios de Consultoría TI <span class="float-end">80%</span></h4>
+                                <div class="progress progress-sm mb-4">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Mantenimiento Vial <span class="float-end">¡Completado!</span></h4>
+                                <div class="progress progress-sm mb-4">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos de Contratos por Empresa y Distribución por Categoría en la misma fila -->
+                <div class="row">
+                    <!-- Contratos por Empresa (movido) -->
+                    <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold">Contratos Adjudicados por Empresa</h6>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
+                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
+                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="companyContractsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Distribución por Categoría (movido) -->
+                    <div class="col-lg-6">
+                        <div class="card shadow mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold">Distribución por Categoría de Contratación</h6>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
+                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
+                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="categoryChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Archivos JavaScript del dashboard -->
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

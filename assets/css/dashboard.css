@@ -1,0 +1,380 @@
+/* 
+ * dashboard.css - Estilos específicos del dashboard
+ * Dashboard de Contratación Pública
+ */
+
+/* Sidebar styles */
+.sidebar {
+  background: linear-gradient(180deg, #42a5cc 10%, #1e7899 100%);
+  color: white;
+  min-height: 100vh;
+  z-index: 100;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.sidebar .nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.5rem;
+  font-size: 16px;
+}
+
+.sidebar-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 1rem 0;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.logo i {
+  margin-right: 0.5rem;
+}
+
+/* Dashboard cards */
+.card-stats {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card-stats:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1.25rem;
+}
+
+/* Stats cards */
+.card-stats .card-body {
+  padding: 1.25rem;
+}
+
+.card-stats .text-xs {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.card-stats .h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.card-stats .col-auto i {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Progress tracking */
+.progress-sm {
+  height: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.progress-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.progress-title .progress-label {
+  font-weight: 500;
+}
+
+.progress-title .progress-percentage {
+  font-weight: 600;
+}
+
+/* Charts */
+.chart-wrapper {
+  padding: 1rem;
+}
+
+/* Tables */
+.table-section .card-body {
+  padding: 0;
+}
+
+.table-contracts {
+  margin-bottom: 0;
+}
+
+.table-contracts th {
+  border-top: none;
+  font-weight: 600;
+  font-size: 12px;
+  color: #555;
+  background-color: #f9f9f9;
+}
+
+.table-contracts td {
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.table-contracts .badge {
+  font-size: 11px;
+  padding: 5px 10px;
+}
+
+/* ACTIONS BUTTONS IN TABLES */
+.btn-icon {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+/* DROPDOWN MENU STYLING */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu .dropdown-item {
+  font-size: 13px;
+  padding: 8px 15px;
+}
+
+.dropdown-menu .dropdown-item i {
+  margin-right: 8px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Scrollable tables */
+.table-responsive {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+}
+
+.empty-state i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.empty-state h5 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Loading state */
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.loading-indicator .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Dashboard Footer */
+.footer {
+  padding: 1.5rem 0;
+  color: #6c757d;
+  background-color: #fff;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Dashboard Breadcrumbs */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+
+.card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: none;
+  font-weight: bold;
+}
+.bg-gradient-primary {
+  background: linear-gradient(to right, #4e73df, #224abe);
+  color: white;
+}
+.bg-gradient-success {
+  background: linear-gradient(to right, #1cc88a, #13855c);
+  color: white;
+}
+.bg-gradient-info {
+  background: linear-gradient(to right, #36b9cc, #258391);
+  color: white;
+}
+.bg-gradient-warning {
+  background: linear-gradient(to right, #f6c23e, #dda20a);
+  color: white;
+}
+.text-xs {
+  font-size: 0.7rem;
+}
+.progress-sm {
+  height: 8px;
+}
+.sidebar {
+  background: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  color: white;
+  min-height: 100vh;
+}
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+}
+.sidebar .nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.sidebar .nav-link.active {
+  color: white;
+  font-weight: bold;
+}
+.sidebar-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 1rem 0;
+}
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 1rem;
+}
+.chart-container {
+  position: relative;
+  height: 320px;
+}
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Estilos para el mapa */
+#mexico-map {
+  width: 100%;
+  height: 450px;
+}
+.state {
+  fill: #e0e0e0;
+  stroke: #ffffff;
+  stroke-width: 1px;
+  transition: fill 0.3s;
+}
+.state:hover {
+  fill: #4e73df;
+  cursor: pointer;
+}
+.state-selected {
+  fill: #4e73df;
+}
+.map-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Estilos para el indicador de carga */
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Leyenda del mapa */
+.map-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.legend-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+.density-low { background-color: #c8def0; }
+.density-medium { background-color: #73a7e0; }
+.density-high { background-color: #4e73df; }
+.density-very-high { background-color: #224abe; }

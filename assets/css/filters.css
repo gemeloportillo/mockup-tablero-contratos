@@ -1,0 +1,291 @@
+/* 
+ * filters.css - Estilos para los componentes de filtros
+ * Dashboard de Contratación Pública
+ */
+
+/* Contenedor principal de filtros */
+.filter-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Título de la sección de filtros */
+.filter-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.filter-title:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #4e73df, #224abe);
+  border-radius: 3px;
+}
+
+/* Filtros activos (pills/badges) */
+.active-filters {
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+.filter-badge {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 12px;
+  padding: 5px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-badge:hover {
+  background-color: #eeeeee;
+}
+
+.filter-badge i {
+  margin-left: 6px;
+  font-size: 11px;
+  color: #777;
+}
+
+/* Botones de acción para filtros */
+.btn-filter {
+  background: linear-gradient(90deg, #4e73df, #224abe);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(78, 115, 223, 0.3);
+}
+
+.btn-filter:hover {
+  background: linear-gradient(90deg, #3a5cbc, #1a3997);
+  box-shadow: 0 4px 6px rgba(78, 115, 223, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-reset {
+  background-color: white;
+  color: #555;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background-color: #f5f5f5;
+}
+
+/* Contenedor de búsqueda con ícono */
+.search-container {
+  position: relative;
+}
+
+.search-container i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.search-input {
+  padding-left: 35px;
+}
+
+/* Contenedor de fecha con ícono */
+.date-filter {
+  position: relative;
+}
+
+.date-filter i {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+}
+
+/* Contenedor de rangos (min-max) */
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.range-input {
+  position: relative;
+  flex: 1;
+}
+
+/* Enlace para mostrar/ocultar filtros avanzados */
+.toggle-filters {
+  font-size: 13px;
+  color: #4e73df;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.toggle-filters i {
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.toggle-filters.collapsed i {
+  transform: rotate(180deg);
+}
+
+/* Checkbox y Radio personalizado */
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #4e73df;
+  background-color: #4e73df;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+/* Select con íconos */
+.select-with-icon {
+  position: relative;
+}
+
+.select-with-icon i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+}
+
+.select-with-icon select {
+  padding-left: 35px;
+}
+
+/* Sliders (input range) */
+.filter-slider {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.filter-slider-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Filtros tipo chip/tag */
+.filter-chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.filter-chip {
+  padding: 5px 12px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  background-color: #eaeaea;
+}
+
+.filter-chip.active {
+  background-color: #4e73df;
+  color: white;
+  border-color: #4e73df;
+}
+
+/* Tooltip personalizado */
+.filter-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.filter-tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.filter-tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Botones de ordenamiento */
+.sort-btn {
+  cursor: pointer;
+  color: #777;
+  margin-left: 5px;
+}
+
+.sort-btn.active {
+  color: #4e73df;
+}
+
+/* Acordeón de filtros */
+.filter-accordion-header {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-accordion-content {
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: white;
+}

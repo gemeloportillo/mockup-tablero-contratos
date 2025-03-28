@@ -60,7 +60,7 @@ function initializeCompanyChart() {
           tooltip: {
               callbacks: {
                   afterLabel: function(context) {
-                      // Valor simulado del total en USD
+                      // Valor simulado del total en MXN
                       const values = [2250000, 1950000, 1350000, 1250000, 1050000, 900000, 750000, 600000];
                       return 'Valor total: $' + values[context.dataIndex].toLocaleString();
                   }

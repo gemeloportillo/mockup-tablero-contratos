@@ -78,7 +78,7 @@ function initializeCategoryChart() {
               beginAtZero: true,
               title: {
                   display: true,
-                  text: 'Valor Total (Millones USD)'
+                  text: 'Valor Total (Millones MXN)'
               }
           },
           x: {

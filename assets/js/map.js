@@ -433,7 +433,7 @@ function updateRecentContractsTable(stateName) {
     // Formatear monto con separadores de miles
     const formattedAmount = new Intl.NumberFormat('es-MX', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'MXN',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
     }).format(contract.monto);

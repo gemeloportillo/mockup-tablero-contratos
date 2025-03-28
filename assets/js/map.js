@@ -289,6 +289,8 @@ function initializeMap() {
             }
             
             console.log("Mapa inicializado correctamente");
+             // Inicializar tabla de contratos con datos nacionales
+            updateRecentContractsTable(null);  // AÑADE ESTA LÍNEA
         })
         .catch(error => {
             console.error('Error al cargar el mapa:', error);
@@ -413,7 +415,12 @@ function updateRecentContractsTable(stateName) {
   // Actualizar título de la sección de contratos si existe
   const contractsTitle = document.querySelector('#recentContractsTitle');
   if (contractsTitle) {
-    contractsTitle.textContent = stateName ? `Contratos Recientes: ${stateName}` : "Contratos Recientes";
+    if (stateName) {
+      contractsTitle.textContent = `Contratos Recientes: ${stateName}`;
+    } else {
+      // Texto explícito para datos nacionales
+      contractsTitle.textContent = "Contratos Recientes a nivel nacional"; 
+    }
   }
   
   // Limpiar tabla
@@ -566,6 +573,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Inicializar mapa
         initializeMap();
+
+        // Inicializar tabla de contratos con datos nacionales
+        updateRecentContractsTable(null);  // AÑADE ESTA LÍNEA
+
         
         // Conectar eventos de exportación
         document.querySelectorAll('.dropdown-item').forEach(item => {

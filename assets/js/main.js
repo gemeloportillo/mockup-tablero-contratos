@@ -29,6 +29,107 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Manejar eventos de redimensionamiento para gráficos responsivos
   window.addEventListener('resize', handleResize);
+  
+  // Asegurarse de que el gráfico de empresas se inicialice correctamente
+  setTimeout(function() {
+    // Verificar si el canvas existe
+    const companyCanvas = document.getElementById('companyContractsChart');
+    if (!companyCanvas) {
+      console.warn("No se encontró el elemento canvas para el gráfico de empresas");
+      return;
+    }
+    
+    // Verificar si el gráfico ya está inicializado
+    if (!window.companyChart) {
+      console.log("Intentando inicializar el gráfico de empresas desde main.js...");
+      
+      // Intentar usar el módulo específico si está disponible
+      if (window.companyChartModule && typeof window.companyChartModule.initialize === 'function') {
+        console.log("Usando companyChartModule.initialize()");
+        window.companyChartModule.initialize();
+      } else {
+        console.warn("companyChartModule no disponible. Verificar que company-chart.js esté cargado correctamente.");
+      }
+    } else {
+      console.log("El gráfico de empresas ya está inicializado");
+    }
+  }, 300); // Un pequeño retraso para asegurar que los otros scripts se hayan cargado
+  
+  // Asegurarse de que el gráfico de categorías se inicialice correctamente
+// Asegurarse de que el gráfico de categorías se inicialice correctamente
+setTimeout(function() {
+  // Verificar si el canvas existe
+  const categoryCanvas = document.getElementById('categoryChart');
+  if (!categoryCanvas) {
+    console.warn("No se encontró el elemento canvas para el gráfico de categorías");
+    return;
+  }
+  
+  // Verificar si el gráfico ya está inicializado
+  if (!window.categoryChart) {
+    console.log("Inicializando el gráfico de categorías desde main.js...");
+    
+    // Verificar si la función global está disponible
+    if (typeof initializeCategoryChart === 'function') {
+      console.log("Llamando a initializeCategoryChart()");
+      initializeCategoryChart();
+    }
+    // Intentar usar el módulo específico si está disponible
+    else if (window.categoryChartModule && typeof window.categoryChartModule.initialize === 'function') {
+      console.log("Usando categoryChartModule.initialize()");
+      window.categoryChartModule.initialize();
+    } else {
+      console.error("No se encontró ninguna función para inicializar el gráfico de categorías");
+      
+      // Último recurso: inicialización manual básica si Chart.js está disponible
+      if (typeof Chart !== 'undefined') {
+        console.log("Intentando inicialización manual del gráfico de categorías");
+        const ctx = categoryCanvas.getContext('2d');
+        window.categoryChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+            datasets: [{
+              label: 'Bienes',
+              data: [12.5, 15.8, 14.2, 16.5, 18.2, 17.5],
+              backgroundColor: 'rgba(78, 115, 223, 0.3)',
+              borderColor: 'rgba(78, 115, 223, 1)',
+              borderWidth: 2,
+              fill: true
+            },
+            {
+              label: 'Servicios',
+              data: [8.3, 7.5, 9.8, 10.2, 11.5, 12.8],
+              backgroundColor: 'rgba(28, 200, 138, 0.3)',
+              borderColor: 'rgba(28, 200, 138, 1)',
+              borderWidth: 2,
+              fill: true
+            },
+            {
+              label: 'Obras',
+              data: [5.2, 6.4, 4.8, 7.2, 8.5, 9.1],
+              backgroundColor: 'rgba(246, 194, 62, 0.3)',
+              borderColor: 'rgba(246, 194, 62, 1)',
+              borderWidth: 2,
+              fill: true
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      }
+    }
+  } else {
+    console.log("El gráfico de categorías ya está inicializado");
+  }
+}, 350); // Un pequeño retraso para asegurar que los otros scripts se hayan cargado
 });
 
 /**

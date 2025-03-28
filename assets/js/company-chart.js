@@ -6,79 +6,109 @@
 
 // Inicializar el gráfico cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
-  initializeCompanyChart();
+  // Diferir la inicialización para asegurarnos que Chart.js esté cargado
+  setTimeout(function() {
+    initializeCompanyChart();
+  }, 100);
 });
 
 /**
 * Inicializa el gráfico de contratos por empresa
 */
 function initializeCompanyChart() {
-  const companiesCtx = document.getElementById('companyContractsChart').getContext('2d');
+  console.log("Inicializando gráfico de contratos por empresa...");
   
-  // Datos para el gráfico
-  const companiesData = {
-      labels: ['Constructora Hernández S.A.', 'TechSolutions Inc.', 'Grupo Logístico Internacional', 
-              'Servicios Integrales S.A.', 'Medical Supplies Corp.', 'Ingeniería Avanzada', 
-              'Transportes Unidos', 'Consultores Asociados'],
-      datasets: [{
-          label: 'Número de Contratos Adjudicados',
-          data: [45, 39, 27, 25, 21, 18, 15, 12],
-          backgroundColor: 'rgba(78, 115, 223, 0.7)',
-          borderColor: 'rgba(78, 115, 223, 1)',
-          borderWidth: 1,
-          barPercentage: 0.7,
-          categoryPercentage: 0.8
-      }]
-  };
+  // Verificar si el canvas existe
+  const companiesCanvas = document.getElementById('companyContractsChart');
+  if (!companiesCanvas) {
+    console.error("No se encontró el elemento canvas con ID 'companyContractsChart'");
+    return;
+  }
+  
+  // Verificar si Chart.js está disponible
+  if (typeof Chart === 'undefined') {
+    console.error("Chart.js no está disponible. Asegúrate de que la biblioteca esté cargada.");
+    return;
+  }
+  
+  // Verificar si el gráfico ya está inicializado para evitar duplicación
+  if (window.companyChart) {
+    console.warn("El gráfico de empresas ya está inicializado. Se evitará la duplicación.");
+    return;
+  }
+  
+  try {
+    const companiesCtx = companiesCanvas.getContext('2d');
+    
+    // Datos para el gráfico
+    const companiesData = {
+        labels: ['Constructora Hernández S.A.', 'TechSolutions Inc.', 'Grupo Logístico Internacional', 
+                'Servicios Integrales S.A.', 'Medical Supplies Corp.', 'Ingeniería Avanzada', 
+                'Transportes Unidos', 'Consultores Asociados'],
+        datasets: [{
+            label: 'Número de Contratos Adjudicados',
+            data: [45, 39, 27, 25, 21, 18, 15, 12],
+            backgroundColor: 'rgba(78, 115, 223, 0.7)',
+            borderColor: 'rgba(78, 115, 223, 1)',
+            borderWidth: 1,
+            barPercentage: 0.7,
+            categoryPercentage: 0.8
+        }]
+    };
 
-  // Opciones del gráfico
-  const options = {
-      maintainAspectRatio: false,
-      scales: {
-          y: {
-              beginAtZero: true,
-              title: {
-                  display: true,
-                  text: 'Número de Contratos'
-              }
-          },
-          x: {
-              title: {
-                  display: true,
-                  text: 'Empresa'
-              },
-              ticks: {
-                  maxRotation: 45,
-                  minRotation: 45
-              }
-          }
-      },
-      plugins: {
-          legend: {
-              display: false
-          },
-          tooltip: {
-              callbacks: {
-                  afterLabel: function(context) {
-                      // Valor simulado del total en MXN
-                      const values = [2250000, 1950000, 1350000, 1250000, 1050000, 900000, 750000, 600000];
-                      return 'Valor total: $' + values[context.dataIndex].toLocaleString();
-                  }
-              }
-          }
-      },
-      animation: {
-          duration: 1000,
-          easing: 'easeOutQuart'
-      }
-  };
+    // Opciones del gráfico
+    const options = {
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Número de Contratos'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Empresa'
+                },
+                ticks: {
+                    maxRotation: 45,
+                    minRotation: 45
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                callbacks: {
+                    afterLabel: function(context) {
+                        // Valor simulado del total en MXN
+                        const values = [2250000, 1950000, 1350000, 1250000, 1050000, 900000, 750000, 600000];
+                        return 'Valor total: $' + values[context.dataIndex].toLocaleString();
+                    }
+                }
+            }
+        },
+        animation: {
+            duration: 1000,
+            easing: 'easeOutQuart'
+        }
+    };
 
-  // Crear el gráfico
-  window.companyChart = new Chart(companiesCtx, {
-      type: 'bar',
-      data: companiesData,
-      options: options
-  });
+    // Crear el gráfico
+    window.companyChart = new Chart(companiesCtx, {
+        type: 'bar',
+        data: companiesData,
+        options: options
+    });
+    
+    console.log("Gráfico de contratos por empresa inicializado correctamente");
+  } catch (error) {
+    console.error("Error al inicializar el gráfico de contratos por empresa:", error);
+  }
 }
 
 /**

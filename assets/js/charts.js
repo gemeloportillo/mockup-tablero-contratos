@@ -55,7 +55,9 @@ function initCharts(data) {
   }
 
   try {
-    // Verificar cada conjunto de datos antes de inicializar los gráficos
+    // No inicializamos el gráfico de empresa desde aquí, dejamos que company-chart.js lo maneje
+    // Vamos a omitir esta parte para evitar conflictos
+    /* 
     if (data.contractsByCompany && Array.isArray(data.contractsByCompany) && data.contractsByCompany.length > 0) {
       initCompanyContractsChart(data.contractsByCompany);
     } else {
@@ -63,6 +65,7 @@ function initCharts(data) {
       // Inicializar con datos de ejemplo si no hay datos reales
       initCompanyContractsChart(getSampleCompanyData());
     }
+    */
     
     if (data.procurementMethods && Array.isArray(data.procurementMethods) && data.procurementMethods.length > 0) {
       initProcurementMethodChart(data.procurementMethods);
@@ -72,6 +75,8 @@ function initCharts(data) {
       initProcurementMethodChart(getSampleProcurementData());
     }
     
+    // No inicializamos el gráfico de categorías desde aquí, dejamos que category-chart.js lo maneje
+    /*
     if (data.categoriesMonthly && data.categoriesMonthly.months) {
       initCategoryChart(data.categoriesMonthly);
     } else {
@@ -79,69 +84,22 @@ function initCharts(data) {
       // Inicializar con datos de ejemplo
       initCategoryChart(getSampleCategoryData());
     }
+    */
   } catch (error) {
     console.error('Error al inicializar los gráficos:', error);
   }
 }
 
 /**
+* Esta función ha sido comentada para evitar conflictos con company-chart.js
 * Crea o actualiza el gráfico de barras de contratos por empresa
 * @param {Array} data - Datos de contratos por empresa
 */
+/*
 function initCompanyContractsChart(data) {
-  try {
-    // Primero verificamos si Chart está definido
-    if (typeof Chart === 'undefined') {
-      console.error('Chart.js no está disponible. Asegúrate de incluir la biblioteca antes de inicializar los gráficos.');
-      return;
-    }
-    
-    // Verificar si el elemento canvas existe
-    const canvas = document.getElementById('companyContractsChart');
-    if (!canvas) {
-      console.error('No se encontró el elemento canvas #companyContractsChart');
-      return;
-    }
-    
-    // Verificar que los datos sean válidos
-    if (!data || !Array.isArray(data) || data.length === 0) {
-      console.warn('Datos de contratos por empresa no válidos');
-      data = getSampleCompanyData(); // Usar datos de ejemplo
-    }
-    
-    const ctx = canvas.getContext('2d');
-    
-    // Extraer datos para el gráfico
-    const labels = data.map(item => item.company || 'Sin nombre');
-    const values = data.map(item => item.contracts || 0);
-    
-    // Crear el gráfico
-    if (window.companyContractsChart) {
-      // Actualizar si ya existe
-      window.companyContractsChart.data.labels = labels;
-      window.companyContractsChart.data.datasets[0].data = values;
-      window.companyContractsChart.update();
-    } else {
-      // Crear nuevo si no existe
-      window.companyContractsChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Número de Contratos Adjudicados',
-            data: values,
-            backgroundColor: chartColors.primaryLight,
-            borderColor: chartColors.primaryBorder,
-            borderWidth: 1
-          }]
-        },
-        // ...resto del código
-      });
-    }
-  } catch (error) {
-    console.error('Error al inicializar el gráfico de contratos por empresa:', error);
-  }
+  // Código comentado para evitar conflictos con company-chart.js
 }
+*/
 
 /**
 * Crea o actualiza el gráfico de métodos de contratación
@@ -232,9 +190,11 @@ function initProcurementMethodChart(data) {
 }
 
 /**
+* Esta función ha sido comentada para evitar conflictos con category-chart.js
 * Crea o actualiza el gráfico de línea para categorías por mes
 * @param {Object} data - Datos de categorías por mes
 */
+/*
 function initCategoryChart(data) {
   try {
     // Verificar si el elemento canvas existe
@@ -348,6 +308,7 @@ function initCategoryChart(data) {
     console.error('Error al inicializar el gráfico de categorías:', error);
   }
 }
+*/
 
 /**
 * Actualiza las estadísticas de tarjetas basadas en los datos filtrados
@@ -480,5 +441,8 @@ function getSampleCategoryData() {
 window.chartUtils = {
   initCharts,
   updateStatsCards,
-  exportChart
+  exportChart,
+  getSampleCompanyData,
+  getSampleProcurementData,
+  getSampleCategoryData
 };

@@ -305,28 +305,39 @@
                         </div>
                     </div>
 
-                    <!-- Distribución por Categoría (movido) -->
+                    <!-- Modificación del HTML para la tarjeta de categorías -->
                     <div class="col-lg-6">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h6 class="m-0 font-weight-bold">Distribución por Categoría de Contratación</h6>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
-                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
-                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-container">
-                                    <canvas id="categoryChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="card shadow mb-4">
+                          <div class="card-header d-flex justify-content-between align-items-center">
+                              <h6 class="m-0 font-weight-bold">Distribución por Categoría de Contratación</h6>
+                              <div class="dropdown">
+                                  <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="fas fa-ellipsis-v"></i>
+                                  </button>
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                      <li><a class="dropdown-item" href="#" id="exportCategoryCSV">
+                                          <i class="fas fa-file-csv me-2"></i>Exportar como CSV</a>
+                                      </li>
+                                      <li><a class="dropdown-item" href="#" id="exportCategoryPDF">
+                                          <i class="fas fa-file-pdf me-2"></i>Exportar como PDF</a>
+                                      </li>
+                                      <li><a class="dropdown-item" href="#" id="refreshCategoryChart">
+                                          <i class="fas fa-sync-alt me-2"></i>Actualizar datos</a>
+                                      </li>
+                                      <li><hr class="dropdown-divider"></li>
+                                      <li><a class="dropdown-item" href="#" id="showCategoryOptions">
+                                          <i class="fas fa-cog me-2"></i>Opciones de visualización</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="card-body">
+                              <div class="chart-container">
+                                  <canvas id="categoryChart"></canvas>
+                              </div>
+                              <!-- Los controles se añadirán mediante JavaScript -->
+                          </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -336,8 +347,12 @@
     <!-- Bootstrap JS y dependencias -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Primero los archivos de utilidades -->
+<script src="assets/js/utils.js"></script>
     <!-- Archivos JavaScript del dashboard -->
-     
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/company-chart.js"></script>
+  <script src="assets/js/category-chart.js"></script>
   <script src="assets/js/map.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

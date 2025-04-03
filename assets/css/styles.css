@@ -45,6 +45,10 @@
   
   --card-stats-warning-start: #e6c154;
   --card-stats-warning-end: #c69f32;
+
+  --card-stats-purple-start: #8a56d0;
+  --card-stats-purple-end: #6539a8;
+
   
   /* Colores de fondo y texto */
   --bg-color: #f8f9fa;
@@ -574,6 +578,18 @@ h1 {
 .bg-gradient-warning {
   background: linear-gradient(to right, var(--card-stats-warning-start), var(--card-stats-warning-end));
   color: white;
+}
+
+.bg-gradient-purple {
+  background-color: var(--card-stats-purple-end);
+  background-image: linear-gradient(180deg, var(--card-stats-purple-start) 10%, var(--card-stats-purple-end) 100%);
+  background-size: cover;
+}
+
+.bg-gradient-purple:hover {
+  background-color: #5a3291;
+  background-image: linear-gradient(180deg, var(--card-stats-purple-end) 10%, #5a3291 100%);
+}
 }
 
 /* Añadir hover effect para mejorar la interactividad */

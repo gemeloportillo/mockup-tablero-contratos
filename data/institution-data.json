@@ -1,0 +1,233 @@
+{
+  "nacional": {
+    "totalInstituciones": 36,
+    "tiposInstitucion": [
+      {
+        "tipo": "Secretaría de Estado",
+        "cantidad": 12,
+        "color": "rgba(66, 165, 204, 0.8)",
+        "badgeClass": "bg-primary"
+      },
+      {
+        "tipo": "Órgano Descentralizado",
+        "cantidad": 8,
+        "color": "rgba(66, 204, 143, 0.8)",
+        "badgeClass": "bg-success"
+      },
+      {
+        "tipo": "Empresa Productiva del Estado",
+        "cantidad": 2,
+        "color": "rgba(66, 184, 204, 0.8)",
+        "badgeClass": "bg-info"
+      },
+      {
+        "tipo": "Gobierno Estatal",
+        "cantidad": 6,
+        "color": "rgba(230, 193, 84, 0.8)",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "tipo": "Organismo Autónomo",
+        "cantidad": 5,
+        "color": "rgba(138, 86, 208, 0.8)",
+        "badgeClass": "bg-purple"
+      },
+      {
+        "tipo": "Otros",
+        "cantidad": 3,
+        "color": "rgba(128, 128, 128, 0.8)",
+        "badgeClass": "bg-secondary"
+      }
+    ],
+    "topInstituciones": [
+      {
+        "institucion": "Secretaría de Salud",
+        "contratos": 187,
+        "monto": 426823789.25,
+        "color": "rgba(66, 165, 204, 0.8)"
+      },
+      {
+        "institucion": "Petróleos Mexicanos",
+        "contratos": 165,
+        "monto": 1235678234.56,
+        "color": "rgba(66, 204, 143, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Educación Pública",
+        "contratos": 145,
+        "monto": 312546789.34,
+        "color": "rgba(66, 184, 204, 0.8)"
+      },
+      {
+        "institucion": "Comisión Federal de Electricidad",
+        "contratos": 132,
+        "monto": 892345789.12,
+        "color": "rgba(230, 193, 84, 0.8)"
+      },
+      {
+        "institucion": "Instituto Mexicano del Seguro Social",
+        "contratos": 121,
+        "monto": 578923456.78,
+        "color": "rgba(138, 86, 208, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Comunicaciones y Transportes",
+        "contratos": 98,
+        "monto": 452378965.43,
+        "color": "rgba(204, 66, 138, 0.8)"
+      },
+      {
+        "institucion": "Instituto de Seguridad y Servicios Sociales",
+        "contratos": 87,
+        "monto": 324567891.23,
+        "color": "rgba(231, 74, 59, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Defensa Nacional",
+        "contratos": 76,
+        "monto": 245678923.45,
+        "color": "rgba(47, 132, 168, 0.8)"
+      }
+    ],
+    "contratacionesPorAnio": {
+      "anios": ["2018", "2019", "2020", "2021", "2022", "2023"],
+      "secretarias": [132, 145, 158, 173, 192, 205],
+      "descentralizados": [97, 103, 115, 126, 134, 148],
+      "estatales": [65, 78, 87, 94, 105, 112]
+    }
+  },
+  "hidalgo": {
+    "totalInstituciones": 12,
+    "tiposInstitucion": [
+      {
+        "tipo": "Secretaría Estatal",
+        "cantidad": 5,
+        "color": "rgba(66, 165, 204, 0.8)",
+        "badgeClass": "bg-primary"
+      },
+      {
+        "tipo": "Órgano Descentralizado",
+        "cantidad": 3,
+        "color": "rgba(66, 204, 143, 0.8)",
+        "badgeClass": "bg-success"
+      },
+      {
+        "tipo": "Gobierno Municipal",
+        "cantidad": 3,
+        "color": "rgba(230, 193, 84, 0.8)",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "tipo": "Organismo Autónomo",
+        "cantidad": 1,
+        "color": "rgba(138, 86, 208, 0.8)",
+        "badgeClass": "bg-purple"
+      }
+    ],
+    "topInstituciones": [
+      {
+        "institucion": "Secretaría de Obras Públicas de Hidalgo",
+        "contratos": 58,
+        "monto": 156782345.67,
+        "color": "rgba(66, 165, 204, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Salud de Hidalgo",
+        "contratos": 52,
+        "monto": 98765432.12,
+        "color": "rgba(66, 204, 143, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Educación Pública de Hidalgo",
+        "contratos": 47,
+        "monto": 87654321.98,
+        "color": "rgba(66, 184, 204, 0.8)"
+      },
+      {
+        "institucion": "Municipio de Pachuca",
+        "contratos": 38,
+        "monto": 76543210.87,
+        "color": "rgba(230, 193, 84, 0.8)"
+      },
+      {
+        "institucion": "Sistema DIF Hidalgo",
+        "contratos": 32,
+        "monto": 54321098.76,
+        "color": "rgba(138, 86, 208, 0.8)"
+      }
+    ],
+    "contratacionesPorAnio": {
+      "anios": ["2018", "2019", "2020", "2021", "2022", "2023"],
+      "secretarias": [32, 38, 42, 48, 53, 58],
+      "descentralizados": [21, 25, 28, 31, 35, 38],
+      "municipales": [15, 18, 22, 25, 28, 32]
+    }
+  },
+  "jalisco": {
+    "totalInstituciones": 14,
+    "tiposInstitucion": [
+      {
+        "tipo": "Secretaría Estatal",
+        "cantidad": 6,
+        "color": "rgba(66, 165, 204, 0.8)",
+        "badgeClass": "bg-primary"
+      },
+      {
+        "tipo": "Órgano Descentralizado",
+        "cantidad": 3,
+        "color": "rgba(66, 204, 143, 0.8)",
+        "badgeClass": "bg-success"
+      },
+      {
+        "tipo": "Gobierno Municipal",
+        "cantidad": 4,
+        "color": "rgba(230, 193, 84, 0.8)",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "tipo": "Organismo Autónomo",
+        "cantidad": 1,
+        "color": "rgba(138, 86, 208, 0.8)",
+        "badgeClass": "bg-purple"
+      }
+    ],
+    "topInstituciones": [
+      {
+        "institucion": "Secretaría de Infraestructura y Obra Pública",
+        "contratos": 67,
+        "monto": 187654321.89,
+        "color": "rgba(66, 165, 204, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Salud Jalisco",
+        "contratos": 59,
+        "monto": 123456789.98,
+        "color": "rgba(66, 204, 143, 0.8)"
+      },
+      {
+        "institucion": "Municipio de Guadalajara",
+        "contratos": 52,
+        "monto": 98765432.10,
+        "color": "rgba(66, 184, 204, 0.8)"
+      },
+      {
+        "institucion": "Secretaría de Educación Jalisco",
+        "contratos": 48,
+        "monto": 87654321.23,
+        "color": "rgba(230, 193, 84, 0.8)"
+      },
+      {
+        "institucion": "Sistema DIF Jalisco",
+        "contratos": 35,
+        "monto": 65432109.87,
+        "color": "rgba(138, 86, 208, 0.8)"
+      }
+    ],
+    "contratacionesPorAnio": {
+      "anios": ["2018", "2019", "2020", "2021", "2022", "2023"],
+      "secretarias": [36, 42, 47, 53, 59, 67],
+      "descentralizados": [23, 28, 32, 35, 39, 43],
+      "municipales": [18, 22, 27, 32, 37, 42]
+    }
+  }
+}

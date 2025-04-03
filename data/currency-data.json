@@ -1,0 +1,176 @@
+{
+  "nacional": {
+    "montoTotalCurrency": [
+      {
+        "total": 193639.43,
+        "currency": "CAD",
+        "name": "Dólar Canadiense",
+        "color": "rgba(204, 66, 138, 0.8)",
+        "badgeClass": "bg-secondary"
+      },
+      {
+        "total": 284745926.1906,
+        "currency": "EUR",
+        "name": "Euro",
+        "color": "rgba(66, 184, 204, 0.8)",
+        "badgeClass": "bg-info"
+      },
+      {
+        "total": 250556.01,
+        "currency": "GBP",
+        "name": "Libra Esterlina",
+        "color": "rgba(138, 86, 208, 0.8)",
+        "badgeClass": "bg-secondary"
+      },
+      {
+        "total": 6620000,
+        "currency": "JPY",
+        "name": "Yen Japonés",
+        "color": "rgba(230, 193, 84, 0.8)",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "total": 2191158137346.9155,
+        "currency": "MXN",
+        "name": "Peso Mexicano",
+        "color": "rgba(66, 165, 204, 0.8)",
+        "badgeClass": "bg-primary"
+      },
+      {
+        "total": 4075221998.557716,
+        "currency": "USD",
+        "name": "Dólar Americano",
+        "color": "rgba(66, 204, 143, 0.8)",
+        "badgeClass": "bg-success"
+      },
+      {
+        "total": 5764397.7,
+        "currency": "N/E",
+        "name": "No Especificado",
+        "color": "rgba(128, 128, 128, 0.8)",
+        "badgeClass": "bg-dark"
+      }
+    ],
+    "tendencia": {
+      "periodos": ["2021-Q1", "2021-Q2", "2021-Q3", "2021-Q4", "2022-Q1", "2022-Q2", "2022-Q3", "2022-Q4", "2023-Q1", "2023-Q2"],
+      "mxn": [210000, 230000, 280000, 260000, 290000, 320000, 380000, 410000, 430000, 460000],
+      "otras": [400, 450, 470, 520, 550, 600, 620, 640, 680, 710]
+    }
+  },
+  "hidalgo": {
+    "montoTotalCurrency": [
+      {
+        "total": 45689.88,
+        "currency": "CAD",
+        "name": "Dólar Canadiense",
+        "color": "rgba(204, 66, 138, 0.8)",
+        "badgeClass": "bg-secondary"
+      },
+      {
+        "total": 87245789.45,
+        "currency": "EUR",
+        "name": "Euro",
+        "color": "rgba(66, 184, 204, 0.8)",
+        "badgeClass": "bg-info"
+      },
+      {
+        "total": 75600.84,
+        "currency": "GBP",
+        "name": "Libra Esterlina",
+        "color": "rgba(138, 86, 208, 0.8)",
+        "badgeClass": "bg-secondary"
+      },
+      {
+        "total": 1540000,
+        "currency": "JPY",
+        "name": "Yen Japonés",
+        "color": "rgba(230, 193, 84, 0.8)",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "total": 562147892345.75,
+        "currency": "MXN",
+        "name": "Peso Mexicano",
+        "color": "rgba(66, 165, 204, 0.8)",
+        "badgeClass": "bg-primary"
+      },
+      {
+        "total": 957621384.34,
+        "currency": "USD",
+        "name": "Dólar Americano",
+        "color": "rgba(66, 204, 143, 0.8)",
+        "badgeClass": "bg-success"
+      },
+      {
+        "total": 1247598.32,
+        "currency": "N/E",
+        "name": "No Especificado",
+        "color": "rgba(128, 128, 128, 0.8)",
+        "badgeClass": "bg-dark"
+      }
+    ],
+    "tendencia": {
+      "periodos": ["2021-Q1", "2021-Q2", "2021-Q3", "2021-Q4", "2022-Q1", "2022-Q2", "2022-Q3", "2022-Q4", "2023-Q1", "2023-Q2"],
+      "mxn": [45000, 51000, 63000, 72000, 78000, 83000, 91000, 98000, 104000, 112000],
+      "otras": [95, 110, 125, 148, 163, 175, 190, 215, 230, 248]
+    }
+  },
+  "jalisco": {
+    "montoTotalCurrency": [
+      {
+        "total": 72450.56,
+        "currency": "CAD",
+        "name": "Dólar Canadiense",
+        "color": "rgba(204, 66, 138, 0.8)",
+        "badgeClass": "bg-secondary"
+      },
+      {
+        "total": 123478965.23,
+        "currency": "EUR",
+        "name": "Euro",
+        "color": "rgba(66, 184, 204, 0.8)",
+        "badgeClass": "bg-info"
+      },
+      {
+        "total": 98765.43,
+        "currency": "GBP",
+        "name": "Libra Esterlina",
+        "color": "rgba(138, 86, 208, 0.8)",
+        "badgeClass": "bg-secondary"
+      },
+      {
+        "total": 2985000,
+        "currency": "JPY",
+        "name": "Yen Japonés",
+        "color": "rgba(230, 193, 84, 0.8)",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "total": 792356478912.56,
+        "currency": "MXN",
+        "name": "Peso Mexicano",
+        "color": "rgba(66, 165, 204, 0.8)",
+        "badgeClass": "bg-primary"
+      },
+      {
+        "total": 1523698741.67,
+        "currency": "USD",
+        "name": "Dólar Americano",
+        "color": "rgba(66, 204, 143, 0.8)",
+        "badgeClass": "bg-success"
+      },
+      {
+        "total": 2365478.91,
+        "currency": "N/E",
+        "name": "No Especificado",
+        "color": "rgba(128, 128, 128, 0.8)",
+        "badgeClass": "bg-dark"
+      }
+    ],
+    "tendencia": {
+      "periodos": ["2021-Q1", "2021-Q2", "2021-Q3", "2021-Q4", "2022-Q1", "2022-Q2", "2022-Q3", "2022-Q4", "2023-Q1", "2023-Q2"],
+      "mxn": [68000, 75000, 82000, 95000, 110000, 128000, 145000, 162000, 178000, 194000],
+      "otras": [140, 156, 175, 198, 223, 245, 270, 298, 325, 360]
+    }
+  }
+}

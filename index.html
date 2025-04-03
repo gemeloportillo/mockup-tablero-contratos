@@ -1,363 +1,889 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tablero de Seguimiento a la Contratación Pública</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- D3.js para el mapa -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-    <link href="assets/css/map.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
-
-</head>
-<body>
+    <link href="assets/css/map.css" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
     <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-2 px-0 sidebar">
-                <div class="logo text-center">
-                  <img src="assets/imgs/logo_pdn-transparente.svg" alt="Icono de contratación" class="" style="height: 32px; width: auto;">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-2 px-0 sidebar">
+          <div class="logo text-center">
+            <img
+              src="assets/imgs/logo_pdn-transparente.svg"
+              alt="Icono de contratación"
+              class=""
+              style="height: 32px; width: auto"
+            />
+          </div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+              </a>
+            </li>
+            <div class="sidebar-divider"></div>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-folder-open me-2"></i> Contratos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-building me-2"></i> Empresas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-gavel me-2"></i> Licitaciones
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-award me-2"></i> Adjudicaciones
+              </a>
+            </li>
+            <div class="sidebar-divider"></div>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-cog me-2"></i> Configuración
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 p-4">
+          <!-- Título con icono SVG -->
+          <div class="d-flex align-items-center mb-4">
+            <img
+              src="assets/imgs/ico_s6.svg"
+              alt="Icono de contratación"
+              class="me-3"
+              style="height: 64px; width: auto"
+            />
+            <h1 class="h3 mb-0">
+              Tablero de Seguimiento a la Contratación Pública
+            </h1>
+          </div>
+
+          <!-- Resumen de Estadísticas -->
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-gradient-primary text-white mb-4">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <div class="text-xs text-uppercase mb-1">
+                        Contratos Totales
+                      </div>
+                      <div class="h5 mb-0">1,283</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-file-contract fa-2x"></i>
+                    </div>
+                  </div>
                 </div>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
-                        </a>
-                    </li>
-                    <div class="sidebar-divider"></div>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-folder-open me-2"></i> Contratos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-building me-2"></i> Empresas
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-gavel me-2"></i> Licitaciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-award me-2"></i> Adjudicaciones
-                        </a>
-                    </li>
-                    <div class="sidebar-divider"></div>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fas fa-cog me-2"></i> Configuración
-                        </a>
-                    </li>
-                </ul>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                >
+                  <a class="small text-white stretched-link" href="#"
+                    >Ver Detalles</a
+                  >
+                  <div class="small text-white">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-gradient-success text-white mb-4">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <div class="text-xs text-uppercase mb-1">
+                        Valor Total (MXN)
+                      </div>
+                      <div class="h5 mb-0">$125,984,230</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                >
+                  <a class="small text-white stretched-link" href="#"
+                    >Ver Detalles</a
+                  >
+                  <div class="small text-white">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-gradient-info text-white mb-4">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <div class="text-xs text-uppercase mb-1">
+                        Empresas Adjudicadas
+                      </div>
+                      <div class="h5 mb-0">87</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-building fa-2x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                >
+                  <a class="small text-white stretched-link" href="#"
+                    >Ver Detalles</a
+                  >
+                  <div class="small text-white">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card bg-gradient-purple text-white mb-4">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <div class="text-xs text-uppercase mb-1">
+                        Instituciones Públicas
+                      </div>
+                      <div class="h5 mb-0">36</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-university fa-2x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                >
+                  <a class="small text-white stretched-link" href="#"
+                    >Ver Detalles</a
+                  >
+                  <div class="small text-white">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Mapa de México -->
+            <div class="col-lg-8">
+              <div class="card shadow mb-4">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h6 class="m-0 font-weight-bold">
+                    Distribución Regional de Contratos
+                  </h6>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <li>
+                        <a class="dropdown-item" href="#">Exportar como CSV</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Exportar como PDF</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Actualizar datos</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body position-relative">
+                  <!-- Contenedor del mapa -->
+                  <div id="mexico-map"></div>
+                  <!-- Tooltip para el mapa -->
+                  <div
+                    id="map-tooltip"
+                    class="map-tooltip"
+                    style="display: none"
+                  ></div>
+                  <!-- Leyenda del mapa -->
+                  <div class="map-legend">
+                    <div class="legend-title mb-2">Contratos por Estado</div>
+                    <div class="legend-item">
+                      <span class="legend-color density-low"></span>
+                      <span>Menos de 50</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-color density-medium"></span>
+                      <span>50 - 100</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-color density-high"></span>
+                      <span>101 - 150</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-color density-very-high"></span>
+                      <span>Más de 150</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="col-md-10 p-4">
-                 <!-- Título con icono SVG -->
-                <div class="d-flex align-items-center mb-4">
-                  <img src="assets/imgs/ico_s6.svg" alt="Icono de contratación" class="me-3" style="height: 64px; width: auto;">
-                  <h1 class="h3 mb-0">Tablero de Seguimiento a la Contratación Pública</h1>
+            <!-- Gráfico de Distribución por Método de Contratación -->
+            <div class="col-lg-4">
+              <div class="card shadow mb-4">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h6 class="m-0 font-weight-bold">Métodos de Contratación</h6>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton2"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton2"
+                    >
+                      <li>
+                        <a class="dropdown-item" href="#">Exportar como CSV</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Exportar como PDF</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Actualizar datos</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="procurementMethodChart"></canvas>
+                  </div>
+                  <div class="text-center mt-3">
+                    <small id="region-title">Datos a nivel nacional</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Contratos Recientes -->
+            <div class="col-lg-6">
+              <div class="card shadow mb-4">
+                <div class="card-header">
+                  <h6 class="m-0 font-weight-bold" id="recentContractsTitle">
+                    Contratos Recientes
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="recentContractsTable">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Proveedor</th>
+                          <th>Monto (MXN)</th>
+                          <th>Fecha</th>
+                          <th>Estado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Aquí se cargarán dinámicamente los contratos -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progreso de Licitaciones -->
+            <div class="col-lg-6">
+              <div class="card shadow mb-4">
+                <div class="card-header">
+                  <h6 class="m-0 font-weight-bold">Progreso de Licitaciones</h6>
+                </div>
+                <div class="card-body">
+                  <h4 class="small font-weight-bold">
+                    Construcción Hospital Regional
+                    <span class="float-end">20%</span>
+                  </h4>
+                  <div class="progress progress-sm mb-4">
+                    <div
+                      class="progress-bar bg-danger"
+                      role="progressbar"
+                      style="width: 20%"
+                      aria-valuenow="20"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <h4 class="small font-weight-bold">
+                    Equipamiento Escuelas Públicas
+                    <span class="float-end">40%</span>
+                  </h4>
+                  <div class="progress progress-sm mb-4">
+                    <div
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      style="width: 40%"
+                      aria-valuenow="40"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <h4 class="small font-weight-bold">
+                    Sistema de Agua Potable <span class="float-end">60%</span>
+                  </h4>
+                  <div class="progress progress-sm mb-4">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 60%"
+                      aria-valuenow="60"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <h4 class="small font-weight-bold">
+                    Servicios de Consultoría TI
+                    <span class="float-end">80%</span>
+                  </h4>
+                  <div class="progress progress-sm mb-4">
+                    <div
+                      class="progress-bar bg-info"
+                      role="progressbar"
+                      style="width: 80%"
+                      aria-valuenow="80"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <h4 class="small font-weight-bold">
+                    Mantenimiento Vial <span class="float-end">Completado</span>
+                  </h4>
+                  <div class="progress progress-sm mb-4">
+                    <div
+                      class="progress-bar bg-success"
+                      role="progressbar"
+                      style="width: 100%"
+                      aria-valuenow="100"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráficos de Contratos por Empresa y Distribución por Categoría en la misma fila -->
+          <div class="row">
+            <!-- Contratos por Empresa (movido) -->
+            <div class="col-lg-12">
+              <div class="card shadow mb-4">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h6 class="m-0 font-weight-bold">
+                    Contratos Adjudicados por Empresa
+                  </h6>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <li>
+                        <a class="dropdown-item" href="#">Exportar como CSV</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Exportar como PDF</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Actualizar datos</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="companyContractsChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Modificación del HTML para la tarjeta de categorías -->
+            <div class="col-lg-12">
+              <div class="card shadow mb-4">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <h6 class="m-0 font-weight-bold">
+                    Distribución por Categoría de Contratación
+                  </h6>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton3"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton3"
+                    >
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          id="exportCategoryCSV"
+                        >
+                          <i class="fas fa-file-csv me-2"></i>Exportar como
+                          CSV</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          id="exportCategoryPDF"
+                        >
+                          <i class="fas fa-file-pdf me-2"></i>Exportar como
+                          PDF</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          id="refreshCategoryChart"
+                        >
+                          <i class="fas fa-sync-alt me-2"></i>Actualizar
+                          datos</a
+                        >
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="#"
+                          id="showCategoryOptions"
+                        >
+                          <i class="fas fa-cog me-2"></i>Opciones de
+                          visualización</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="categoryChart"></canvas>
+                  </div>
+                  <!-- Los controles se añadirán mediante JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para detalles de monedas -->
+    <div
+      class="modal fade"
+      id="currencyDetailModal"
+      tabindex="-1"
+      aria-labelledby="currencyDetailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="currencyDetailModalLabel">
+              <i class="fas fa-money-bill-wave me-2"></i>
+              Detalles de Valor por Moneda
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3 d-flex align-items-center">
+              <select
+                id="regionSelector"
+                class="form-select me-2"
+                style="max-width: 200px"
+              >
+                <option value="nacional">Nacional</option>
+                <option value="aguascalientes">Aguascalientes</option>
+                <option value="baja-california">Baja California</option>
+                <option value="chiapas">Chiapas</option>
+                <option value="hidalgo" selected>Hidalgo</option>
+                <option value="jalisco">Jalisco</option>
+                <!-- Más estados... -->
+              </select>
+              <span class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>
+                Mostrando datos para la región de:
+                <strong id="currentRegion">Hidalgo</strong>
+              </span>
+            </div>
+
+            <div class="row">
+              <!-- Gráfico de distribución por moneda -->
+              <div class="col-md-12">
+                <div class="card shadow-sm mb-4">
+                  <div
+                    class="card-header py-3 d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="m-0 font-weight-bold">
+                      Distribución por Moneda
+                    </h6>
+                    <div class="btn-group btn-group-sm" role="group">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary active"
+                        id="viewLog"
+                      >
+                        Escala Log
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        id="viewLinear"
+                      >
+                        Escala Linear
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div
+                      class="chart-container"
+                      style="position: relative; height: 300px"
+                    >
+                      <canvas id="currencyBarChart"></canvas>
+                    </div>
+                    <div class="small text-center text-muted mt-2">
+                      <i class="fas fa-info-circle me-1"></i> Gráfico en escala
+                      logarítmica para mostrar todas las monedas
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- Tabla de montos por moneda -->
+              <div class="col-md-12">
+                <div class="card shadow-sm">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold">Montos por Moneda</h6>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="table-responsive">
+                      <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                          <tr>
+                            <th>Moneda</th>
+                            <th class="text-end">Monto</th>
+                            <th>% del Total</th>
+                          </tr>
+                        </thead>
+                        <tbody id="currencyTableBody">
+                          <!-- Contenido generado dinámicamente -->
+                        </tbody>
+                        <tfoot class="table-dark">
+                          <tr>
+                            <th>Total</th>
+                            <th class="text-end">0</th>
+                            <th>100%</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filtros y Tendencias -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="card shadow-sm">
+                  <div
+                    class="card-header py-3 d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="m-0 font-weight-bold">
+                      Tendencia de Montos por Moneda
+                    </h6>
+                    <div>
+                      <select
+                        id="yearFilter"
+                        class="form-select form-select-sm d-inline-block me-2"
+                        style="width: auto"
+                      >
+                        <option value="all">Todos los años</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                      </select>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        <i class="fas fa-download me-1"></i> Exportar
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <!-- Aumentar la altura a 300px en lugar de 200px -->
+                    <div
+                      class="chart-container"
+                      style="position: relative; height: 300px"
+                    >
+                      <canvas id="currencyTrendChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary">
+              <i class="fas fa-file-csv me-1"></i> Exportar Datos
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para detalles de instituciones públicas -->
+    <div class="modal fade" id="institutionDetailModal" tabindex="-1" aria-labelledby="institutionDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="institutionDetailModalLabel">
+                <i class="fas fa-university me-2"></i>
+                Detalles de Instituciones Públicas
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="mb-3 d-flex align-items-center">
+                <select id="institutionRegionSelector" class="form-select me-2" style="max-width: 200px;">
+                <option value="nacional">Nacional</option>
+                <option value="aguascalientes">Aguascalientes</option>
+                <option value="baja-california">Baja California</option>
+                <option value="chiapas">Chiapas</option>
+                <option value="hidalgo" selected>Hidalgo</option>
+                <option value="jalisco">Jalisco</option>
+                <!-- Más estados... -->
+                </select>
+                <span class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>
+                Mostrando datos para la región de: <strong id="institutionCurrentRegion">Hidalgo</strong>
+                </span>
+            </div>
+            
+            <!-- Fila 1: Distribución por tipo y Top Instituciones -->
+            <div class="row">
+                <!-- Gráfico de distribución por tipo de institución -->
+                <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Distribución por Tipo</h6>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-secondary active" id="viewPie">Pastel</button>
+                        <button type="button" class="btn btn-outline-secondary" id="viewDonut">Dona</button>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:250px;">
+                        <canvas id="institutionTypeChart"></canvas>
+                    </div>
+                    </div>
+                </div>
                 </div>
                 
-                <!-- Resumen de Estadísticas -->
-                <div class="row">
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-gradient-primary text-white mb-4">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="text-xs text-uppercase mb-1">Contratos Totales</div>
-                                        <div class="h5 mb-0">1,283</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-file-contract fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
+                <!-- Gráfico de top instituciones por contratos -->
+                <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Top Instituciones por Contratos</h6>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-sort me-1"></i>Ordenar
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="sortByContracts">Por número de contratos</a></li>
+                        <li><a class="dropdown-item" href="#" id="sortByAmount">Por monto adjudicado</a></li>
+                        </ul>
                     </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-gradient-success text-white mb-4">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="text-xs text-uppercase mb-1">Valor Total (MXN)</div>
-                                        <div class="h5 mb-0">$125,984,230</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-gradient-info text-white mb-4">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="text-xs text-uppercase mb-1">Empresas Adjudicadas</div>
-                                        <div class="h5 mb-0">87</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-building fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:250px;">
+                        <canvas id="topInstitutionsChart"></canvas>
                     </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-gradient-warning text-white mb-4">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="text-xs text-uppercase mb-1">Licitaciones Activas</div>
-                                        <div class="h5 mb-0">42</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-gavel fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Ver Detalles</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <!-- Mapa de México -->
-                    <div class="col-lg-8">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h6 class="m-0 font-weight-bold">Distribución Regional de Contratos</h6>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
-                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
-                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body position-relative">
-                                <!-- Contenedor del mapa -->
-                                <div id="mexico-map"></div>
-                                <!-- Tooltip para el mapa -->
-                                <div id="map-tooltip" class="map-tooltip" style="display: none;"></div>
-                                <!-- Leyenda del mapa -->
-                                <div class="map-legend">
-                                    <div class="legend-title mb-2">Contratos por Estado</div>
-                                    <div class="legend-item">
-                                        <span class="legend-color density-low"></span>
-                                        <span>Menos de 50</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color density-medium"></span>
-                                        <span>50 - 100</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color density-high"></span>
-                                        <span>101 - 150</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color density-very-high"></span>
-                                        <span>Más de 150</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Gráfico de Distribución por Método de Contratación -->
-                    <div class="col-lg-4">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h6 class="m-0 font-weight-bold">Métodos de Contratación</h6>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
-                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
-                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-container">
-                                    <canvas id="procurementMethodChart"></canvas>
-                                </div>
-                                <div class="text-center mt-3">
-                                    <small id="region-title">Datos a nivel nacional</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <!-- Contratos Recientes -->
-                    <div class="col-lg-6">
-                        <div class="card shadow mb-4">
-                            <div class="card-header">
-                                <h6 class="m-0 font-weight-bold" id="recentContractsTitle">Contratos Recientes</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover"  id="recentContractsTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Proveedor</th>
-                                                <th>Monto (MXN)</th>
-                                                <th>Fecha</th>
-                                                <th>Estado</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                              <!-- Aquí se cargarán dinámicamente los contratos -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Progreso de Licitaciones -->
-                    <div class="col-lg-6">
-                        <div class="card shadow mb-4">
-                            <div class="card-header">
-                                <h6 class="m-0 font-weight-bold">Progreso de Licitaciones</h6>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="small font-weight-bold">Construcción Hospital Regional <span class="float-end">20%</span></h4>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Equipamiento Escuelas Públicas <span class="float-end">40%</span></h4>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Sistema de Agua Potable <span class="float-end">60%</span></h4>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Servicios de Consultoría TI <span class="float-end">80%</span></h4>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <h4 class="small font-weight-bold">Mantenimiento Vial <span class="float-end">Completado</span></h4>
-                                <div class="progress progress-sm mb-4">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gráficos de Contratos por Empresa y Distribución por Categoría en la misma fila -->
-                <div class="row">
-                    <!-- Contratos por Empresa (movido) -->
-                    <div class="col-lg-6">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h6 class="m-0 font-weight-bold">Contratos Adjudicados por Empresa</h6>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Exportar como CSV</a></li>
-                                        <li><a class="dropdown-item" href="#">Exportar como PDF</a></li>
-                                        <li><a class="dropdown-item" href="#">Actualizar datos</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-container">
-                                    <canvas id="companyContractsChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modificación del HTML para la tarjeta de categorías -->
-                    <div class="col-lg-6">
-                      <div class="card shadow mb-4">
-                          <div class="card-header d-flex justify-content-between align-items-center">
-                              <h6 class="m-0 font-weight-bold">Distribución por Categoría de Contratación</h6>
-                              <div class="dropdown">
-                                  <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <i class="fas fa-ellipsis-v"></i>
-                                  </button>
-                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                      <li><a class="dropdown-item" href="#" id="exportCategoryCSV">
-                                          <i class="fas fa-file-csv me-2"></i>Exportar como CSV</a>
-                                      </li>
-                                      <li><a class="dropdown-item" href="#" id="exportCategoryPDF">
-                                          <i class="fas fa-file-pdf me-2"></i>Exportar como PDF</a>
-                                      </li>
-                                      <li><a class="dropdown-item" href="#" id="refreshCategoryChart">
-                                          <i class="fas fa-sync-alt me-2"></i>Actualizar datos</a>
-                                      </li>
-                                      <li><hr class="dropdown-divider"></li>
-                                      <li><a class="dropdown-item" href="#" id="showCategoryOptions">
-                                          <i class="fas fa-cog me-2"></i>Opciones de visualización</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="card-body">
-                              <div class="chart-container">
-                                  <canvas id="categoryChart"></canvas>
-                              </div>
-                              <!-- Los controles se añadirán mediante JavaScript -->
-                          </div>
-                      </div>
-                    </div>
                 </div>
             </div>
+            
+            <!-- Fila 2: Tabla de instituciones y Tendencia por año -->
+            <div class="row">
+                <!-- Tabla de instituciones -->
+                <div class="col-md-12">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Listado de Instituciones</h6>
+                    <div class="input-group" style="width: 250px;">
+                        <input type="text" class="form-control form-control-sm" id="institutionSearch" placeholder="Buscar institución...">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" id="searchButton">
+                        <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="card-body p-0">
+                    <div class="table-responsive" style="max-height: 300px;">
+                        <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                            <th>Institución</th>
+                            <th>Tipo</th>
+                            <th class="text-center">Contratos</th>
+                            <th class="text-end">Monto Total (MXN)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="institutionsTableBody">
+                            <!-- Contenido generado dinámicamente -->
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Fila 3: Tendencia de contrataciones por año -->
+            <div class="row">
+                <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Tendencia de Contrataciones por Tipo de Institución</h6>
+                    <div>
+                        <select id="institutionYearFilter" class="form-select form-select-sm d-inline-block me-2" style="width: auto;">
+                        <option value="all">Todos los años</option>
+                        <option value="last3">Últimos 3 años</option>
+                        <option value="last5">Últimos 5 años</option>
+                        </select>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <i class="fas fa-download me-1"></i> Exportar
+                        </button>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:300px;">
+                        <canvas id="institutionTrendChart"></canvas>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">
+                <i class="fas fa-file-csv me-1"></i> Exportar Datos
+            </button>
+            </div>
+        </div>
         </div>
     </div>
 
+
     <!-- Bootstrap JS y dependencias -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Primero los archivos de utilidades -->
-<script src="assets/js/utils.js"></script>
+    <script src="assets/js/utils.js"></script>
     <!-- Archivos JavaScript del dashboard -->
-  <script src="assets/js/charts.js"></script>
-  <script src="assets/js/company-chart.js"></script>
-  <script src="assets/js/category-chart.js"></script>
-  <script src="assets/js/map.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/company-chart.js"></script>
+    <script src="assets/js/category-chart.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- Script para el modal de monedas -->
+    <script src="assets/js/currency-modal.js"></script>
+    <!-- Asegúrate de que esté después de Chart.js y bootstrap.bundle.min.js -->
+    <script src="assets/js/institution-modal.js"></script>
+  </body>
 </html>

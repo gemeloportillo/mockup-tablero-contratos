@@ -1,0 +1,579 @@
+{
+  "nacional": {
+    "stats": {
+      "total": 87,
+      "avgContracts": 14.7,
+      "avgValue": 1448095.75,
+      "concentrationIndex": 76.8
+    },
+    "marketConcentration": {
+      "top10": {
+        "contracts": 578,
+        "valuePercentage": 76.8,
+        "contractsPercentage": 65.4,
+        "totalValue": 96500000.00
+      },
+      "others": {
+        "contracts": 705,
+        "valuePercentage": 23.2,
+        "contractsPercentage": 34.6,
+        "totalValue": 29484230.00
+      }
+    },
+    "categories": [
+      { "category": "Construcción", "count": 23, "color": "rgba(66, 165, 204, 0.8)" },
+      { "category": "Tecnología", "count": 18, "color": "rgba(66, 204, 143, 0.8)" },
+      { "category": "Servicios", "count": 15, "color": "rgba(230, 193, 84, 0.8)" },
+      { "category": "Salud", "count": 12, "color": "rgba(204, 66, 138, 0.8)" },
+      { "category": "Transporte", "count": 9, "color": "rgba(138, 86, 208, 0.8)" },
+      { "category": "Otros", "count": 10, "color": "rgba(128, 128, 128, 0.8)" }
+    ],
+    "topSuppliers": [
+      { 
+        "name": "Constructora Hernández S.A.", 
+        "id": "SUP-CON-001", 
+        "contracts": 45, 
+        "value": 24500000.00, 
+        "color": "rgba(66, 165, 204, 0.8)" 
+      },
+      { 
+        "name": "TechSolutions Inc.", 
+        "id": "SUP-TECH-001", 
+        "contracts": 39, 
+        "value": 19500000.00, 
+        "color": "rgba(66, 204, 143, 0.8)" 
+      },
+      { 
+        "name": "Grupo Logístico Internacional", 
+        "id": "SUP-LOG-001", 
+        "contracts": 27, 
+        "value": 12500000.00, 
+        "color": "rgba(66, 184, 204, 0.8)" 
+      },
+      { 
+        "name": "Servicios Integrales S.A.", 
+        "id": "SUP-SERV-001", 
+        "contracts": 25, 
+        "value": 9800000.00, 
+        "color": "rgba(230, 193, 84, 0.8)" 
+      },
+      { 
+        "name": "Medical Supplies Corp.", 
+        "id": "SUP-MED-001", 
+        "contracts": 21, 
+        "value": 8200000.00, 
+        "color": "rgba(138, 86, 208, 0.8)" 
+      },
+      { 
+        "name": "Ingeniería Avanzada", 
+        "id": "SUP-ING-001", 
+        "contracts": 18, 
+        "value": 7500000.00, 
+        "color": "rgba(204, 66, 138, 0.8)" 
+      },
+      { 
+        "name": "Transportes Unidos", 
+        "id": "SUP-TRAN-001", 
+        "contracts": 15, 
+        "value": 6300000.00, 
+        "color": "rgba(231, 74, 59, 0.8)" 
+      },
+      { 
+        "name": "Consultores Asociados", 
+        "id": "SUP-CONS-001", 
+        "contracts": 12, 
+        "value": 5200000.00, 
+        "color": "rgba(47, 132, 168, 0.8)" 
+      },
+      { 
+        "name": "Materiales de Construcción Nacional", 
+        "id": "SUP-MAT-001", 
+        "contracts": 11, 
+        "value": 4850000.00, 
+        "color": "rgba(84, 170, 128, 0.8)" 
+      },
+      { 
+        "name": "Equipamiento Industrial S.A.", 
+        "id": "SUP-EQI-001", 
+        "contracts": 10, 
+        "value": 4250000.00, 
+        "color": "rgba(192, 117, 63, 0.8)" 
+      }
+    ],
+    "suppliers": [
+      {
+        "name": "Constructora Hernández S.A.",
+        "id": "SUP-CON-001",
+        "contracts": 45,
+        "value": 24500000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "TechSolutions Inc.",
+        "id": "SUP-TECH-001",
+        "contracts": 39,
+        "value": 19500000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Grupo Logístico Internacional",
+        "id": "SUP-LOG-001",
+        "contracts": 27,
+        "value": 12500000.00,
+        "category": "Logística"
+      },
+      {
+        "name": "Servicios Integrales S.A.",
+        "id": "SUP-SERV-001",
+        "contracts": 25,
+        "value": 9800000.00,
+        "category": "Servicios"
+      },
+      {
+        "name": "Medical Supplies Corp.",
+        "id": "SUP-MED-001",
+        "contracts": 21,
+        "value": 8200000.00,
+        "category": "Salud"
+      },
+      {
+        "name": "Ingeniería Avanzada",
+        "id": "SUP-ING-001",
+        "contracts": 18,
+        "value": 7500000.00,
+        "category": "Ingeniería"
+      },
+      {
+        "name": "Transportes Unidos",
+        "id": "SUP-TRAN-001",
+        "contracts": 15,
+        "value": 6300000.00,
+        "category": "Transporte"
+      },
+      {
+        "name": "Consultores Asociados",
+        "id": "SUP-CONS-001",
+        "contracts": 12,
+        "value": 5200000.00,
+        "category": "Consultoría"
+      },
+      {
+        "name": "Materiales de Construcción Nacional",
+        "id": "SUP-MAT-001",
+        "contracts": 11,
+        "value": 4850000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Equipamiento Industrial S.A.",
+        "id": "SUP-EQI-001",
+        "contracts": 10,
+        "value": 4250000.00,
+        "category": "Ingeniería"
+      },
+      {
+        "name": "Soluciones de Software Gubernamental",
+        "id": "SUP-TECH-002",
+        "contracts": 9,
+        "value": 3850000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Distribuidora Médica Nacional",
+        "id": "SUP-MED-002",
+        "contracts": 8,
+        "value": 3400000.00,
+        "category": "Salud"
+      },
+      {
+        "name": "Construcciones Urbanas S.A.",
+        "id": "SUP-CON-002",
+        "contracts": 7,
+        "value": 2950000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Servicios de Capacitación Empresarial",
+        "id": "SUP-SERV-002",
+        "contracts": 6,
+        "value": 2500000.00,
+        "category": "Servicios"
+      },
+      {
+        "name": "Infraestructura y Obra Civil",
+        "id": "SUP-CON-003",
+        "contracts": 5,
+        "value": 2100000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Sistemas de Seguridad Nacional",
+        "id": "SUP-TECH-003",
+        "contracts": 5,
+        "value": 1950000.00,
+        "category": "Tecnología"
+      }
+    ]
+  },
+  "hidalgo": {
+    "stats": {
+      "total": 22,
+      "avgContracts": 12.3,
+      "avgValue": 1150487.92,
+      "concentrationIndex": 72.5
+    },
+    "marketConcentration": {
+      "top10": {
+        "contracts": 148,
+        "valuePercentage": 72.5,
+        "contractsPercentage": 61.2,
+        "totalValue": 23500000.00
+      },
+      "others": {
+        "contracts": 93,
+        "valuePercentage": 27.5,
+        "contractsPercentage": 38.8,
+        "totalValue": 8912500.00
+      }
+    },
+    "categories": [
+      { "category": "Construcción", "count": 7, "color": "rgba(66, 165, 204, 0.8)" },
+      { "category": "Tecnología", "count": 4, "color": "rgba(66, 204, 143, 0.8)" },
+      { "category": "Servicios", "count": 5, "color": "rgba(230, 193, 84, 0.8)" },
+      { "category": "Salud", "count": 3, "color": "rgba(204, 66, 138, 0.8)" },
+      { "category": "Otros", "count": 3, "color": "rgba(128, 128, 128, 0.8)" }
+    ],
+    "topSuppliers": [
+      { 
+        "name": "Constructora Hidalguense S.A.", 
+        "id": "HID-CON-001", 
+        "contracts": 18, 
+        "value": 7850000.00, 
+        "color": "rgba(66, 165, 204, 0.8)" 
+      },
+      { 
+        "name": "Servicios Tecnológicos de Hidalgo", 
+        "id": "HID-TECH-001", 
+        "contracts": 15, 
+        "value": 5250000.00, 
+        "color": "rgba(66, 204, 143, 0.8)" 
+      },
+      { 
+        "name": "Grupo Hidalgo Logística", 
+        "id": "HID-LOG-001", 
+        "contracts": 12, 
+        "value": 3600000.00, 
+        "color": "rgba(230, 193, 84, 0.8)" 
+      },
+      { 
+        "name": "Servicios Integrales Pachuca", 
+        "id": "HID-SERV-001", 
+        "contracts": 10, 
+        "value": 2800000.00, 
+        "color": "rgba(138, 86, 208, 0.8)" 
+      },
+      { 
+        "name": "Suministros Médicos Hidalgo", 
+        "id": "HID-MED-001", 
+        "contracts": 8, 
+        "value": 2200000.00, 
+        "color": "rgba(204, 66, 138, 0.8)" 
+      },
+      { 
+        "name": "Ingeniería y Arquitectura Hidalguense", 
+        "id": "HID-ING-001", 
+        "contracts": 7, 
+        "value": 1850000.00, 
+        "color": "rgba(231, 74, 59, 0.8)" 
+      },
+      { 
+        "name": "Transportes de Hidalgo", 
+        "id": "HID-TRAN-001", 
+        "contracts": 6, 
+        "value": 1620000.00, 
+        "color": "rgba(47, 132, 168, 0.8)" 
+      },
+      { 
+        "name": "Consultores Asociados de Hidalgo", 
+        "id": "HID-CONS-001", 
+        "contracts": 5, 
+        "value": 1450000.00, 
+        "color": "rgba(84, 170, 128, 0.8)" 
+      }
+    ],
+    "suppliers": [
+      {
+        "name": "Constructora Hidalguense S.A.",
+        "id": "HID-CON-001",
+        "contracts": 18,
+        "value": 7850000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Servicios Tecnológicos de Hidalgo",
+        "id": "HID-TECH-001",
+        "contracts": 15,
+        "value": 5250000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Grupo Hidalgo Logística",
+        "id": "HID-LOG-001",
+        "contracts": 12,
+        "value": 3600000.00,
+        "category": "Logística"
+      },
+      {
+        "name": "Servicios Integrales Pachuca",
+        "id": "HID-SERV-001",
+        "contracts": 10,
+        "value": 2800000.00,
+        "category": "Servicios"
+      },
+      {
+        "name": "Suministros Médicos Hidalgo",
+        "id": "HID-MED-001",
+        "contracts": 8,
+        "value": 2200000.00,
+        "category": "Salud"
+      },
+      {
+        "name": "Ingeniería y Arquitectura Hidalguense",
+        "id": "HID-ING-001",
+        "contracts": 7,
+        "value": 1850000.00,
+        "category": "Ingeniería"
+      },
+      {
+        "name": "Transportes de Hidalgo",
+        "id": "HID-TRAN-001",
+        "contracts": 6,
+        "value": 1620000.00,
+        "category": "Transporte"
+      },
+      {
+        "name": "Consultores Asociados de Hidalgo",
+        "id": "HID-CONS-001",
+        "contracts": 5,
+        "value": 1450000.00,
+        "category": "Consultoría"
+      },
+      {
+        "name": "Materiales para Construcción Pachuca",
+        "id": "HID-MAT-001",
+        "contracts": 4,
+        "value": 1200000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Equipamiento Médico de Hidalgo",
+        "id": "HID-MED-002",
+        "contracts": 3,
+        "value": 980000.00,
+        "category": "Salud"
+      },
+      {
+        "name": "Soluciones Digitales de Hidalgo",
+        "id": "HID-TECH-002",
+        "contracts": 3,
+        "value": 850000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Servicios de Limpieza Estatales",
+        "id": "HID-SERV-002",
+        "contracts": 2,
+        "value": 620000.00,
+        "category": "Servicios"
+      }
+    ]
+  },
+  "jalisco": {
+    "stats": {
+      "total": 28,
+      "avgContracts": 13.5,
+      "avgValue": 1325845.36,
+      "concentrationIndex": 74.3
+    },
+    "marketConcentration": {
+      "top10": {
+        "contracts": 210,
+        "valuePercentage": 74.3,
+        "contractsPercentage": 63.8,
+        "totalValue": 28500000.00
+      },
+      "others": {
+        "contracts": 119,
+        "valuePercentage": 25.7,
+        "contractsPercentage": 36.2,
+        "totalValue": 9850000.00
+      }
+    },
+    "categories": [
+      { "category": "Construcción", "count": 8, "color": "rgba(66, 165, 204, 0.8)" },
+      { "category": "Tecnología", "count": 6, "color": "rgba(66, 204, 143, 0.8)" },
+      { "category": "Servicios", "count": 5, "color": "rgba(230, 193, 84, 0.8)" },
+      { "category": "Salud", "count": 4, "color": "rgba(204, 66, 138, 0.8)" },
+      { "category": "Transporte", "count": 3, "color": "rgba(138, 86, 208, 0.8)" },
+      { "category": "Otros", "count": 2, "color": "rgba(128, 128, 128, 0.8)" }
+    ],
+    "topSuppliers": [
+      { 
+        "name": "Constructora Jalisciense S.A.", 
+        "id": "JAL-CON-001", 
+        "contracts": 20, 
+        "value": 8750000.00, 
+        "color": "rgba(66, 165, 204, 0.8)" 
+      },
+      { 
+        "name": "Innovaciones Tecnológicas Jalisco", 
+        "id": "JAL-TECH-001", 
+        "contracts": 18, 
+        "value": 6500000.00, 
+        "color": "rgba(66, 204, 143, 0.8)" 
+      },
+      { 
+        "name": "Transportes y Logística GDL", 
+        "id": "JAL-LOG-001", 
+        "contracts": 15, 
+        "value": 4800000.00, 
+        "color": "rgba(230, 193, 84, 0.8)" 
+      },
+      { 
+        "name": "Servicios Integrales Jalisco", 
+        "id": "JAL-SERV-001", 
+        "contracts": 12, 
+        "value": 3600000.00, 
+        "color": "rgba(138, 86, 208, 0.8)" 
+      },
+      { 
+        "name": "Suministros Médicos Occidentales", 
+        "id": "JAL-MED-001", 
+        "contracts": 10, 
+        "value": 2850000.00, 
+        "color": "rgba(204, 66, 138, 0.8)" 
+      },
+      { 
+        "name": "Ingeniería Civil de Jalisco", 
+        "id": "JAL-ING-001", 
+        "contracts": 9, 
+        "value": 2450000.00, 
+        "color": "rgba(231, 74, 59, 0.8)" 
+      },
+      { 
+        "name": "Grupo Tecnológico de Occidente", 
+        "id": "JAL-TECH-002", 
+        "contracts": 8, 
+        "value": 2200000.00, 
+        "color": "rgba(47, 132, 168, 0.8)" 
+      },
+      { 
+        "name": "Equipamiento Hospitalario de Jalisco", 
+        "id": "JAL-MED-002", 
+        "contracts": 7, 
+        "value": 1850000.00, 
+        "color": "rgba(84, 170, 128, 0.8)" 
+      }
+    ],
+    "suppliers": [
+      {
+        "name": "Constructora Jalisciense S.A.",
+        "id": "JAL-CON-001",
+        "contracts": 20,
+        "value": 8750000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Innovaciones Tecnológicas Jalisco",
+        "id": "JAL-TECH-001",
+        "contracts": 18,
+        "value": 6500000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Transportes y Logística GDL",
+        "id": "JAL-LOG-001",
+        "contracts": 15,
+        "value": 4800000.00,
+        "category": "Logística"
+      },
+      {
+        "name": "Servicios Integrales Jalisco",
+        "id": "JAL-SERV-001",
+        "contracts": 12,
+        "value": 3600000.00,
+        "category": "Servicios"
+      },
+      {
+        "name": "Suministros Médicos Occidentales",
+        "id": "JAL-MED-001",
+        "contracts": 10,
+        "value": 2850000.00,
+        "category": "Salud"
+      },
+      {
+        "name": "Ingeniería Civil de Jalisco",
+        "id": "JAL-ING-001",
+        "contracts": 9,
+        "value": 2450000.00,
+        "category": "Ingeniería"
+      },
+      {
+        "name": "Grupo Tecnológico de Occidente",
+        "id": "JAL-TECH-002",
+        "contracts": 8,
+        "value": 2200000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Equipamiento Hospitalario de Jalisco",
+        "id": "JAL-MED-002",
+        "contracts": 7,
+        "value": 1850000.00,
+        "category": "Salud"
+      },
+      {
+        "name": "Muebles y Equipos de Oficina Jalisco",
+        "id": "JAL-EQUIP-001",
+        "contracts": 6,
+        "value": 1620000.00,
+        "category": "Equipamiento"
+      },
+      {
+        "name": "Constructora Tapatía",
+        "id": "JAL-CON-002",
+        "contracts": 5,
+        "value": 1450000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Servicios de Limpieza y Mantenimiento",
+        "id": "JAL-SERV-002",
+        "contracts": 4,
+        "value": 1250000.00,
+        "category": "Servicios"
+      },
+      {
+        "name": "Sistemas Informáticos Gubernamentales",
+        "id": "JAL-TECH-003",
+        "contracts": 3,
+        "value": 980000.00,
+        "category": "Tecnología"
+      },
+      {
+        "name": "Materiales de Construcción Jalisco",
+        "id": "JAL-MAT-001",
+        "contracts": 3,
+        "value": 850000.00,
+        "category": "Construcción"
+      },
+      {
+        "name": "Transportes Escolares de Jalisco",
+        "id": "JAL-TRAN-001",
+        "contracts": 2,
+        "value": 650000.00,
+        "category": "Transporte"
+      }
+    ]
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "nacional": {
+    "stats": {
+      "total": 1283,
+      "active": 752,
+      "avgValue": 98195.03,
+      "avgDuration": 173
+    },
+    "statusDistribution": [
+      { "status": "Activo", "count": 752, "color": "rgba(66, 204, 143, 0.8)" },
+      { "status": "Pendiente", "count": 187, "color": "rgba(66, 165, 204, 0.8)" },
+      { "status": "Terminado", "count": 298, "color": "rgba(230, 193, 84, 0.8)" },
+      { "status": "Cancelado", "count": 46, "color": "rgba(204, 66, 138, 0.8)" }
+    ],
+    "methodDistribution": [
+      { "method": "Licitación Abierta", "count": 578, "color": "rgba(66, 165, 204, 0.8)" },
+      { "method": "Licitación Selectiva", "count": 321, "color": "rgba(66, 204, 143, 0.8)" },
+      { "method": "Licitación Limitada", "count": 127, "color": "rgba(230, 193, 84, 0.8)" },
+      { "method": "Adjudicación Directa", "count": 257, "color": "rgba(204, 66, 138, 0.8)" }
+    ],
+    "trendByMonth": {
+      "months": ["2025-01", "2025-02", "2025-03", "2024-10", "2024-11", "2024-12"],
+      "counts": [42, 35, 50, 65, 70, 75],
+      "values": [65000000, 42000000, 78000000, 82000000, 96000000, 102000000]
+    },
+    "contracts": [
+      {
+        "id": "ocds-abcdef-CON-2025-0125",
+        "title": "Construcción de puente vehicular",
+        "supplier": "Constructora Hernández S.A.",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 1250000.00,
+        "date": "2025-03-15T10:30:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0124",
+        "title": "Sistema de gestión documental digital",
+        "supplier": "TechSolutions Inc.",
+        "method": "Licitación Selectiva",
+        "status": "Activo",
+        "value": 890500.00,
+        "date": "2025-03-12T14:15:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0123",
+        "title": "Servicios de logística para mercancías",
+        "supplier": "Grupo Logístico Internacional",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 422800.00,
+        "date": "2025-03-10T09:45:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0122",
+        "title": "Mantenimiento de instituciones educativas",
+        "supplier": "Servicios Integrales S.A.",
+        "method": "Licitación Limitada",
+        "status": "Pendiente",
+        "value": 150750.00,
+        "date": "2025-03-05T10:30:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0121",
+        "title": "Suministro de equipos médicos",
+        "supplier": "Medical Supplies Corp.",
+        "method": "Adjudicación Directa",
+        "status": "Activo",
+        "value": 320000.00,
+        "date": "2025-03-01T11:25:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0120",
+        "title": "Servicios de consultoría TI",
+        "supplier": "Consultores Asociados",
+        "method": "Adjudicación Directa",
+        "status": "Pendiente",
+        "value": 178500.00,
+        "date": "2025-02-28T14:20:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0119",
+        "title": "Mantenimiento vial urbano",
+        "supplier": "Ingeniería Avanzada",
+        "method": "Licitación Abierta",
+        "status": "Terminado",
+        "value": 563200.00,
+        "date": "2025-02-20T08:15:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0118",
+        "title": "Adquisición de mobiliario escolar",
+        "supplier": "Muebles y Diseños Institucionales",
+        "method": "Licitación Selectiva",
+        "status": "Terminado",
+        "value": 287600.00,
+        "date": "2025-02-15T11:30:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0117",
+        "title": "Servicios de seguridad para edificios gubernamentales",
+        "supplier": "Seguridad Total S.A.",
+        "method": "Licitación Limitada",
+        "status": "Activo",
+        "value": 345800.00,
+        "date": "2025-02-10T09:45:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0116",
+        "title": "Desarrollo de software para trámites en línea",
+        "supplier": "TechSolutions Inc.",
+        "method": "Licitación Selectiva",
+        "status": "Activo",
+        "value": 728900.00,
+        "date": "2025-02-05T14:20:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0115",
+        "title": "Capacitación en atención ciudadana",
+        "supplier": "Instituto de Capacitación Pública",
+        "method": "Adjudicación Directa",
+        "status": "Terminado",
+        "value": 98700.00,
+        "date": "2025-02-01T10:30:00Z"
+      },
+      {
+        "id": "ocds-abcdef-CON-2025-0114",
+        "title": "Renovación de flota vehicular",
+        "supplier": "Automotriz Gubernamental",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 1750000.00,
+        "date": "2025-01-25T11:45:00Z"
+      }
+    ]
+  },
+  "hidalgo": {
+    "stats": {
+      "total": 327,
+      "active": 198,
+      "avgValue": 86421.50,
+      "avgDuration": 158
+    },
+    "statusDistribution": [
+      { "status": "Activo", "count": 198, "color": "rgba(66, 204, 143, 0.8)" },
+      { "status": "Pendiente", "count": 54, "color": "rgba(66, 165, 204, 0.8)" },
+      { "status": "Terminado", "count": 62, "color": "rgba(230, 193, 84, 0.8)" },
+      { "status": "Cancelado", "count": 13, "color": "rgba(204, 66, 138, 0.8)" }
+    ],
+    "methodDistribution": [
+      { "method": "Licitación Abierta", "count": 148, "color": "rgba(66, 165, 204, 0.8)" },
+      { "method": "Licitación Selectiva", "count": 85, "color": "rgba(66, 204, 143, 0.8)" },
+      { "method": "Licitación Limitada", "count": 32, "color": "rgba(230, 193, 84, 0.8)" },
+      { "method": "Adjudicación Directa", "count": 62, "color": "rgba(204, 66, 138, 0.8)" }
+    ],
+    "trendByMonth": {
+      "months": ["2025-01", "2025-02", "2025-03", "2024-10", "2024-11", "2024-12"],
+      "counts": [15, 12, 18, 22, 25, 28],
+      "values": [18500000, 14200000, 22800000, 24700000, 28900000, 32500000]
+    },
+    "contracts": [
+      {
+        "id": "ocds-hidalgo-CON-2025-0042",
+        "title": "Construcción de centro comunitario",
+        "supplier": "Constructora Hernández S.A.",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 870000.00,
+        "date": "2025-03-10T10:30:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0041",
+        "title": "Mejoramiento de sistema de agua potable",
+        "supplier": "Ingeniería Hidráulica Avanzada",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 720500.00,
+        "date": "2025-03-05T11:15:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0040",
+        "title": "Servicios de capacitación a servidores públicos",
+        "supplier": "Instituto de Capacitación Pública",
+        "method": "Adjudicación Directa",
+        "status": "Terminado",
+        "value": 86500.00,
+        "date": "2025-02-28T09:45:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0039",
+        "title": "Equipamiento de centros de salud",
+        "supplier": "Medical Supplies Corp.",
+        "method": "Licitación Selectiva",
+        "status": "Activo",
+        "value": 245300.00,
+        "date": "2025-02-20T14:30:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0038",
+        "title": "Renovación de equipo informático en escuelas",
+        "supplier": "TechSolutions Inc.",
+        "method": "Licitación Selectiva",
+        "status": "Pendiente",
+        "value": 198750.00,
+        "date": "2025-02-15T10:20:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0037",
+        "title": "Mantenimiento de parques públicos",
+        "supplier": "Servicios Integrales S.A.",
+        "method": "Licitación Limitada",
+        "status": "Activo",
+        "value": 124600.00,
+        "date": "2025-02-10T09:30:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0036",
+        "title": "Pavimentación de calles en zona norte",
+        "supplier": "Constructora Hernández S.A.",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 560800.00,
+        "date": "2025-02-05T11:45:00Z"
+      },
+      {
+        "id": "ocds-hidalgo-CON-2025-0035",
+        "title": "Servicios de transporte escolar",
+        "supplier": "Transportes Unidos",
+        "method": "Licitación Limitada",
+        "status": "Cancelado",
+        "value": 187200.00,
+        "date": "2025-01-30T09:15:00Z"
+      }
+    ]
+  },
+  "jalisco": {
+    "stats": {
+      "total": 452,
+      "active": 286,
+      "avgValue": 92365.78,
+      "avgDuration": 165
+    },
+    "statusDistribution": [
+      { "status": "Activo", "count": 286, "color": "rgba(66, 204, 143, 0.8)" },
+      { "status": "Pendiente", "count": 65, "color": "rgba(66, 165, 204, 0.8)" },
+      { "status": "Terminado", "count": 87, "color": "rgba(230, 193, 84, 0.8)" },
+      { "status": "Cancelado", "count": 14, "color": "rgba(204, 66, 138, 0.8)" }
+    ],
+    "methodDistribution": [
+      { "method": "Licitación Abierta", "count": 203, "color": "rgba(66, 165, 204, 0.8)" },
+      { "method": "Licitación Selectiva", "count": 112, "color": "rgba(66, 204, 143, 0.8)" },
+      { "method": "Licitación Limitada", "count": 45, "color": "rgba(230, 193, 84, 0.8)" },
+      { "method": "Adjudicación Directa", "count": 92, "color": "rgba(204, 66, 138, 0.8)" }
+    ],
+    "trendByMonth": {
+      "months": ["2025-01", "2025-02", "2025-03", "2024-10", "2024-11", "2024-12"],
+      "counts": [22, 19, 26, 33, 38, 42],
+      "values": [24500000, 21200000, 28800000, 34700000, 41900000, 49500000]
+    },
+    "contracts": [
+      {
+        "id": "ocds-jalisco-CON-2025-0061",
+        "title": "Ampliación del sistema de transporte público",
+        "supplier": "Transportes Unidos",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 1850000.00,
+        "date": "2025-03-15T09:30:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0060",
+        "title": "Construcción de centro cultural",
+        "supplier": "Constructora Hernández S.A.",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 1250000.00,
+        "date": "2025-03-10T11:45:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0059",
+        "title": "Modernización de sistema de alumbrado público",
+        "supplier": "Ingeniería Eléctrica Especializada",
+        "method": "Licitación Selectiva",
+        "status": "Activo",
+        "value": 675800.00,
+        "date": "2025-03-05T14:20:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0058",
+        "title": "Servicios de consultoría para modernización administrativa",
+        "supplier": "Consultores Asociados",
+        "method": "Adjudicación Directa",
+        "status": "Pendiente",
+        "value": 220500.00,
+        "date": "2025-02-28T10:15:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0057",
+        "title": "Suministro de medicamentos para hospitales",
+        "supplier": "Medical Supplies Corp.",
+        "method": "Licitación Selectiva",
+        "status": "Activo",
+        "value": 835600.00,
+        "date": "2025-02-20T09:30:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0056",
+        "title": "Desarrollo de plataforma digital de servicios ciudadanos",
+        "supplier": "TechSolutions Inc.",
+        "method": "Licitación Abierta",
+        "status": "Activo",
+        "value": 945300.00,
+        "date": "2025-02-15T15:20:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0055",
+        "title": "Rehabilitación de edificios escolares",
+        "supplier": "Servicios Integrales S.A.",
+        "method": "Licitación Limitada",
+        "status": "Pendiente",
+        "value": 356800.00,
+        "date": "2025-02-10T11:30:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0054",
+        "title": "Mantenimiento de red carretera estatal",
+        "supplier": "Ingeniería Avanzada",
+        "method": "Licitación Abierta",
+        "status": "Terminado",
+        "value": 780500.00,
+        "date": "2025-02-05T09:45:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0053",
+        "title": "Servicios de capacitación en protección civil",
+        "supplier": "Instituto de Capacitación Pública",
+        "method": "Adjudicación Directa",
+        "status": "Terminado",
+        "value": 115800.00,
+        "date": "2025-01-30T14:30:00Z"
+      },
+      {
+        "id": "ocds-jalisco-CON-2025-0052",
+        "title": "Adquisición de vehículos para seguridad pública",
+        "supplier": "Automotriz Gubernamental",
+        "method": "Licitación Selectiva",
+        "status": "Activo",
+        "value": 1150000.00,
+        "date": "2025-01-25T10:20:00Z"
+      }
+    ]
+  }
+}

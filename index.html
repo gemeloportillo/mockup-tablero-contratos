@@ -869,6 +869,442 @@
         </div>
     </div>
 
+    <!-- Modal para detalles de contratos -->
+    <div class="modal fade" id="contractDetailModal" tabindex="-1" aria-labelledby="contractDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="contractDetailModalLabel">
+                <i class="fas fa-file-contract me-2"></i>
+                Detalles de Contratos
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="mb-3 d-flex align-items-center">
+                <select id="contractRegionSelector" class="form-select me-2" style="max-width: 200px;">
+                <option value="nacional">Nacional</option>
+                <option value="aguascalientes">Aguascalientes</option>
+                <option value="baja-california">Baja California</option>
+                <option value="chiapas">Chiapas</option>
+                <option value="hidalgo" selected>Hidalgo</option>
+                <option value="jalisco">Jalisco</option>
+                <!-- Más estados... -->
+                </select>
+                <span class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>
+                Mostrando datos para la región de: <strong id="contractCurrentRegion">Hidalgo</strong>
+                </span>
+            </div>
+            
+            <!-- Fila 1: Estadísticas generales y estado de contratos -->
+            <div class="row">
+                <!-- Tarjetas de estadísticas -->
+                <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold">Estadísticas Generales</h6>
+                    </div>
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Contratos Totales</div>
+                                <div class="h4 mb-0" id="totalContractsCount">0</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-file-contract fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-success text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Contratos Activos</div>
+                                <div class="h4 mb-0" id="activeContractsCount">0</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-check-circle fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-info text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Valor Promedio</div>
+                                <div class="h4 mb-0" id="averageContractValue">$0</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-dollar-sign fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Duración Promedio</div>
+                                <div class="h4 mb-0" id="averageDuration">0 días</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-calendar-alt fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Gráfico de estado de contratos -->
+                <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold">Estado de Contratos</h6>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:220px;">
+                        <canvas id="contractStatusChart"></canvas>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Fila 2: Tendencia mensual y métodos de contratación -->
+            <div class="row">
+                <!-- Gráfico de tendencia mensual -->
+                <div class="col-md-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Tendencia Mensual de Contratos</h6>
+                    <div>
+                        <select id="contractYearFilter" class="form-select form-select-sm d-inline-block" style="width: auto;">
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:250px;">
+                        <canvas id="contractTrendChart"></canvas>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Gráfico de métodos de contratación -->
+                <div class="col-md-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold">Métodos de Contratación</h6>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:250px;">
+                        <canvas id="contractMethodChart"></canvas>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Fila 3: Tabla de contratos recientes -->
+            <div class="row">
+                <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Contratos Recientes</h6>
+                    <div class="input-group" style="width: 250px;">
+                        <input type="text" class="form-control form-control-sm" id="contractSearch" placeholder="Buscar contrato...">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" id="contractSearchButton">
+                        <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="card-body p-0">
+                    <div class="table-responsive" style="max-height: 300px;">
+                        <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Proveedor</th>
+                            <th>Método</th>
+                            <th class="text-end">Valor (MXN)</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contractsTableBody">
+                            <!-- Contenido generado dinámicamente -->
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <div class="card-footer py-2">
+                    <nav>
+                        <ul class="pagination pagination-sm justify-content-end mb-0">
+                        <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">
+                <i class="fas fa-file-csv me-1"></i> Exportar Datos
+            </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-- Modal para detalles de empresas adjudicadas -->
+    <div class="modal fade" id="supplierDetailModal" tabindex="-1" aria-labelledby="supplierDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="supplierDetailModalLabel">
+                <i class="fas fa-building me-2"></i>
+                Detalles de Empresas Adjudicadas
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="mb-3 d-flex align-items-center">
+                <select id="supplierRegionSelector" class="form-select me-2" style="max-width: 200px;">
+                <option value="nacional">Nacional</option>
+                <option value="aguascalientes">Aguascalientes</option>
+                <option value="baja-california">Baja California</option>
+                <option value="chiapas">Chiapas</option>
+                <option value="hidalgo" selected>Hidalgo</option>
+                <option value="jalisco">Jalisco</option>
+                <!-- Más estados... -->
+                </select>
+                <span class="text-muted">
+                <i class="fas fa-info-circle me-1"></i>
+                Mostrando datos para la región de: <strong id="supplierCurrentRegion">Hidalgo</strong>
+                </span>
+            </div>
+            
+            <!-- Fila 1: Estadísticas generales y concentración de mercado -->
+            <div class="row">
+                <!-- Tarjetas de estadísticas -->
+                <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold">Estadísticas de Empresas</h6>
+                    </div>
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-info text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Total Empresas</div>
+                                <div class="h4 mb-0" id="totalSuppliersCount">0</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-building fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-success text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Contratos Promedio</div>
+                                <div class="h4 mb-0" id="avgContractsPerSupplier">0</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-file-contract fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Monto Promedio</div>
+                                <div class="h4 mb-0" id="avgValuePerSupplier">$0</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-dollar-sign fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body py-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                <div class="text-xs text-uppercase">Índice Concentración</div>
+                                <div class="h4 mb-0" id="concentrationIndex">0%</div>
+                                </div>
+                                <div>
+                                <i class="fas fa-chart-pie fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Gráfico de concentración de mercado (Top 10 vs resto) -->
+                <div class="col-md-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Concentración de Mercado</h6>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-outline-secondary active" id="viewByValue">Por Monto</button>
+                        <button type="button" class="btn btn-outline-secondary" id="viewByContracts">Por Contratos</button>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:220px;">
+                        <canvas id="marketConcentrationChart"></canvas>
+                    </div>
+                    <div class="small text-center text-muted mt-2">
+                        <span id="concentrationNote">Top 10 empresas vs resto del mercado por monto adjudicado</span>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Fila 2: Top empresas adjudicadas y categorías principales -->
+            <div class="row">
+                <!-- Gráfico de top empresas -->
+                <div class="col-md-7">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Top 10 Empresas por Monto Adjudicado</h6>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-sort me-1"></i>Ordenar
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" id="sortSuppliersByValue">Por monto adjudicado</a></li>
+                        <li><a class="dropdown-item" href="#" id="sortSuppliersByContracts">Por número de contratos</a></li>
+                        <li><a class="dropdown-item" href="#" id="sortSuppliersByAvgValue">Por valor promedio</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:350px;">
+                        <canvas id="topSuppliersChart"></canvas>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Gráfico de categorías principales adjudicadas -->
+                <div class="col-md-5">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold">Categorías Principales</h6>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart-container" style="position: relative; height:350px;">
+                        <canvas id="supplierCategoriesChart"></canvas>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Fila 3: Tabla de empresas adjudicadas -->
+            <div class="row">
+                <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold">Empresas Adjudicadas</h6>
+                    <div class="input-group" style="width: 250px;">
+                        <input type="text" class="form-control form-control-sm" id="supplierSearch" placeholder="Buscar empresa...">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" id="supplierSearchButton">
+                        <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="card-body p-0">
+                    <div class="table-responsive" style="max-height: 300px;">
+                        <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                            <th>Empresa</th>
+                            <th>ID</th>
+                            <th class="text-center">Contratos</th>
+                            <th class="text-end">Monto Total</th>
+                            <th class="text-end">Monto Promedio</th>
+                            <th class="text-center">Detalle</th>
+                            </tr>
+                        </thead>
+                        <tbody id="suppliersTableBody">
+                            <!-- Contenido generado dinámicamente -->
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <div class="card-footer py-2">
+                    <nav>
+                        <ul class="pagination pagination-sm justify-content-end mb-0">
+                        <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">
+                <i class="fas fa-file-csv me-1"></i> Exportar Datos
+            </button>
+            </div>
+        </div>
+        </div>
+    </div>
 
     <!-- Bootstrap JS y dependencias -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -885,5 +1321,9 @@
     <script src="assets/js/currency-modal.js"></script>
     <!-- Asegúrate de que esté después de Chart.js y bootstrap.bundle.min.js -->
     <script src="assets/js/institution-modal.js"></script>
+    <!-- Script para el modal de contratos -->
+    <script src="assets/js/contract-modal.js"></script>
+    <!-- Script para el modal de empresas adjudicadas -->
+    <script src="assets/js/supplier-modal.js"></script>
   </body>
 </html>

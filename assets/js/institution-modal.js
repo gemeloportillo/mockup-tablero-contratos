@@ -393,6 +393,7 @@ function initializeTopInstitutionsChart(institutionsData) {
   }
 }
 
+
 /**
  * Actualiza el gráfico de tendencia por año
  * @param {string} region - Región seleccionada

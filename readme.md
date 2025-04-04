@@ -23,39 +23,58 @@ Un dashboard interactivo para visualizar y analizar datos de contrataciones púb
 ```
 dashboard-contratacion-publica/
 │
-├── index.html                  # Archivo principal HTML
+├── index.html                            # Archivo principal HTML
 │
-├── assets/                     # Todos los recursos estáticos
+├── assets/                               # Todos los recursos estáticos
 │   ├── css/
-│   │   ├── styles.css          # Estilos principales
-│   │   ├── dashboard.css       # Estilos específicos del dashboard
-│   │   ├── filters.css         # Estilos para los filtros
-│   │   └── responsive.css      # Reglas de media queries para responsividad
+│   │   ├── charts.css                    # Estilos gráficas
+│   │   ├── styles.css                    # Estilos principales
+│   │   ├── dashboard.css                 # Estilos específicos del dashboard
+│   │   ├── filters.css                   # Estilos para los filtros
+│   │   ├── map.css                       # Estilos mapa
+│   │   ├── mapa.css                      # Estilos mapa
+│   │   └── responsive.css                # Reglas de media queries para responsividad
+│   │
+│   ├── imgs/                             # Imágenes e iconos
+│   │   ├── ico_s6.svg                    # Icono sistema 6
+│   │   └── logo_pdn-transparente.svg     # Icono PDN
 │   │
 │   ├── js/
-│   │   ├── main.js             # Código JavaScript principal
-│   │   ├── charts.js           # Código para todas las gráficas (Chart.js)
-│   │   ├── filters.js          # Lógica para los filtros
-│   │   ├── data-loader.js      # Carga y procesamiento de datos
-│   │   └── utils.js            # Funciones utilitarias
+│   │   ├── category-chart.js             # Código gráfica de categoría
+│   │   ├── charts.js                     # Código para todas las gráficas (Chart.js)
+│   │   ├── company-chart.js              # Código gráfica de compañía
+│   │   ├── contract-modal.js             # Código modal de contratos
+│   │   ├── contracts-data.js             # Código datos de contrato
+│   │   ├── currency-modal.js             # Código modal de valores por moneda
+│   │   ├── institution-modal.js          # Código modal de instituciones
+│   │   ├── main.js                       # Código principal
+│   │   ├── map.js                        # Código mapa
+│   │   ├── procurement-method-chart.js   # Código gráfico Métodos de Contratación
+│   │   ├── supplier-modal.js             # Código grafica de empresas adjudicadas
+│   │   ├── filters.js                    # Lógica para los filtros
+│   │   ├── data-loader.js                # Carga y procesamiento de datos
+│   │   └── utils.js                      # Funciones utilitarias
 │   │
-│   ├── img/                    # Imágenes e iconos
-│   │
-│   └── vendors/                # Bibliotecas de terceros
+│   └── vendors/                          # Bibliotecas de terceros
 │       ├── bootstrap/
 │       ├── chart.js/
 │       └── fontawesome/
 │
-├── data/                       # Datos de muestra JSON
-│   └── sample-data.json        # Datos de ejemplo para desarrollo
+├── data/                                 # Datos de muestra JSON
+│   ├── contract-data.json                # Datos de ejemplo de contratos detallados
+│   ├── currency-data.json                # Datos de ejemplo para valores por moneda
+│   ├── institution-data.json             # Datos de ejemplo para instituciones
+│   ├── mexico_estados.json               # Datos de ejemplo estados
+│   ├── sample-data.json                  # Datos de ejemplo
+│   └── supplier-data.json                # Datos de ejemplo para empresas adjudicadas
 │
-├── pages/                      # Páginas adicionales
-│   ├── contracts.html          # Página de contratos detallados
-│   ├── providers.html          # Página de proveedores
-│   ├── tenders.html            # Página de licitaciones
-│   └── settings.html           # Configuración
+├── pages/                                # Páginas adicionales
+│   ├── contracts.html                    # Página de contratos detallados
+│   ├── providers.html                    # Página de proveedores
+│   ├── tenders.html                      # Página de licitaciones
+│   └── settings.html                     # Configuración
 │
-└── README.md                   # Documentación del proyecto
+└── README.md                             # Documentación del proyecto
 ```
 
 ## Instalación y Uso

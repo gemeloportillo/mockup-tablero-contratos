@@ -8,6 +8,70 @@
 let methodsChart; // Referencia al gráfico de métodos de contratación
 let selectedState = null; // Estado actualmente seleccionado
 
+
+// Añade esto en la parte superior del archivo map.js después de las variables globales
+
+// Datos de muestra para métodos de contratación a nivel nacional
+window.methodsDataNacional = {
+    labels: ['Licitación Abierta', 'Licitación Selectiva', 'Contratación Directa', 'Licitación Limitada'],
+    datasets: [{
+      data: [45, 25, 20, 10],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#dda20a'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }]
+  };
+  
+  // Función mejorada para inicializar el gráfico de métodos
+  function initializeMethodsChart() {
+    const methodsCtx = document.getElementById('procurementMethodChart');
+    if (!methodsCtx) return;
+    
+    if (window.methodsChart) {
+      window.methodsChart.destroy();
+    }
+    
+    window.methodsChart = new Chart(methodsCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Licitación Abierta', 'Licitación Selectiva', 'Contratación Directa', 'Licitación Limitada'],
+        datasets: [{
+          data: [45, 25, 20, 10],
+          backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e'],
+          hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#dda20a'],
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              usePointStyle: true,
+              padding: 15
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const value = context.raw || 0;
+                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                const percentage = ((value / total) * 100).toFixed(1);
+                return `${label}: ${value} (${percentage}%)`;
+              }
+            }
+          }
+        }
+      }
+    });
+    
+    window.methodsDataNacional = window.methodsChart.data;
+  }
+
+
 /**
  * Función principal para inicializar el mapa
  */
@@ -162,43 +226,54 @@ function initializeMap() {
                 .attr("stroke", "#ffffff")
                 .attr("stroke-width", 1)
                 .attr("data-name", d => d.properties.ESTADO)
+                // Reemplaza el código del evento "mouseover" en map.js con esta versión mejorada
                 .on("mouseover", function(event, d) {
-                  const stateName = d.properties.ESTADO;
-                  if (!stateName) return;
-                  
-                  const normalizedName = normalizeStateName(stateName);
-                  let contratos = 0;
-                  let dataKey = stateName;
-                  
-                  // Buscar datos del estado
-                  if (window.datosContratosPorEstado[stateName]) {
-                      contratos = window.datosContratosPorEstado[stateName];
-                  } else {
-                      for (const key in window.datosContratosPorEstado) {
-                          if (normalizeStateName(key) === normalizedName) {
-                              contratos = window.datosContratosPorEstado[key];
-                              dataKey = key; // Guardar la clave que coincide para usar con estadosDatosContratacion
-                              break;
-                          }
-                      }
-                  }
-                  
-                  // Mostrar tooltip
-                  tooltip.style.display = "block";
-                  tooltip.style.left = (event.pageX + 10) + "px";
-                  tooltip.style.top = (event.pageY - 25) + "px";
-                  tooltip.innerHTML = `<strong>${stateName}</strong><br>Contratos: ${contratos}`;
-                  
-                  // Efecto visual
-                  d3.select(this)
-                      .attr("stroke-width", 2)
-                      .attr("stroke", "#333");
-                  
-                  // Actualizar gráfico solo si no hay un estado seleccionado
-                  if (!selectedState && methodsChart) {
-                      updateMethodsChart(dataKey);
-                  }
-              })
+                    const stateName = d.properties.ESTADO;
+                    if (!stateName) return;
+                    
+                    const normalizedName = normalizeStateName(stateName);
+                    let contratos = 0;
+                    let dataKey = stateName;
+                    
+                    // Buscar datos del estado
+                    if (window.datosContratosPorEstado[stateName]) {
+                        contratos = window.datosContratosPorEstado[stateName];
+                    } else {
+                        for (const key in window.datosContratosPorEstado) {
+                            if (normalizeStateName(key) === normalizedName) {
+                                contratos = window.datosContratosPorEstado[key];
+                                dataKey = key; // Guardar la clave que coincide para usar con estadosDatosContratacion
+                                break;
+                            }
+                        }
+                    }
+                    
+                    // Obtener la posición exacta del cursor relativa a la ventana
+                    const mouse = event;
+                    
+                    // Obtener las coordenadas del mapa en la página
+                    const mapRect = document.getElementById('mexico-map').getBoundingClientRect();
+                    
+                    // Calcular la posición exacta para el tooltip
+                    const tooltipX = mouse.clientX - mapRect.left + 20; // Desplazamiento horizontal para evitar que esté bajo el cursor
+                    const tooltipY = mouse.clientY - mapRect.top - 15; // Desplazamiento vertical para que esté ligeramente arriba del cursor
+                    
+                    // Mostrar tooltip
+                    tooltip.style.display = "block";
+                    tooltip.style.left = tooltipX + "px";
+                    tooltip.style.top = tooltipY + "px";
+                    tooltip.innerHTML = `<strong>${stateName}</strong><br>Contratos: ${contratos}`;
+                    
+                    // Efecto visual
+                    d3.select(this)
+                        .attr("stroke-width", 2)
+                        .attr("stroke", "#333");
+                    
+                    // Actualizar gráfico solo si no hay un estado seleccionado
+                    if (!selectedState && methodsChart) {
+                        updateMethodsChart(dataKey);
+                    }
+                })
                 .on("mouseout", function() {
                     // Ocultar tooltip
                     tooltip.style.display = "none";
@@ -217,6 +292,9 @@ function initializeMap() {
                 })
 
                                 
+                // Modificación para añadir la funcionalidad de zoom al estado seleccionado
+                // Este código debe reemplazar el evento 'click' existente en la función initializeMap del archivo map.js
+
                 .on("click", function(event, d) {
                     const stateName = d.properties.ESTADO;
                     if (!stateName) return;
@@ -227,13 +305,18 @@ function initializeMap() {
                         .attr("stroke-width", 1)
                         .attr("stroke", "#fff");
                     
-                    // Si se hace clic en el mismo estado, deseleccionarlo
+                    // Si se hace clic en el mismo estado, deseleccionarlo y resetear zoom
                     if (selectedState === stateName) {
                         selectedState = null;
                         if (methodsChart) updateMethodsChart(null);
-                        // AGREGAR ESTA LÍNEA:
                         updateRecentContractsTable(null);
-                        console.log("Estado deseleccionado");
+                        
+                        // Resetear zoom al estado original
+                        svg.transition()
+                        .duration(750)
+                        .call(zoom.transform, d3.zoomIdentity);
+                        
+                        console.log("Estado deseleccionado y zoom reseteado");
                         return;
                     }
                     
@@ -246,10 +329,30 @@ function initializeMap() {
                     
                     // Actualizar información del estado seleccionado
                     if (methodsChart) updateMethodsChart(stateName);
-                    // AGREGAR ESTA LÍNEA:
                     updateRecentContractsTable(stateName);
                     
-                    console.log(`Estado seleccionado: ${stateName}`);
+                    // Calcular los bounds del estado seleccionado para el zoom
+                    const bounds = pathGenerator.bounds(d);
+                    const dx = bounds[1][0] - bounds[0][0];
+                    const dy = bounds[1][1] - bounds[0][1];
+                    const x = (bounds[0][0] + bounds[1][0]) / 2;
+                    const y = (bounds[0][1] + bounds[1][1]) / 2;
+                    
+                    // Calcular la escala y traducción para el zoom
+                    const scale = Math.min(8, 0.9 / Math.max(dx / width, dy / height));
+                    const translate = [width / 2 - scale * x, height / 2 - scale * y];
+                    
+                    // Aplicar la transición de zoom
+                    svg.transition()
+                    .duration(750)
+                    .call(
+                        zoom.transform,
+                        d3.zoomIdentity
+                            .translate(translate[0], translate[1])
+                            .scale(scale)
+                    );
+                    
+                    console.log(`Estado seleccionado: ${stateName} con zoom aplicado`);
                 });
 
             
@@ -332,47 +435,50 @@ function initializeMethodsChart() {
  * @param {string} stateName - Nombre del estado seleccionado
  */
 function updateMethodsChart(stateName) {
-  if (!methodsChart) return;
-  
-  const regionTitle = document.getElementById('region-title');
-  if (!regionTitle) return;
-  
-  if (stateName) {
+    if (!window.methodsChart) {
+      console.error("El gráfico de métodos no está inicializado");
+      return;
+    }
+    
+    const regionTitle = document.getElementById('region-title');
+    if (!regionTitle) return;
+    
+    if (stateName) {
       let data = null;
       
       // Primero intentar coincidencia exacta
-      if (window.estadosDatosContratacion[stateName]) {
-          data = window.estadosDatosContratacion[stateName].data;
+      if (window.estadosDatosContratacion && window.estadosDatosContratacion[stateName]) {
+        data = window.estadosDatosContratacion[stateName].data;
       } 
       // Si no hay coincidencia, buscar por nombre normalizado
-      else {
-          const normalizedName = normalizeStateName(stateName);
-          for (const key in window.estadosDatosContratacion) {
-              if (normalizeStateName(key) === normalizedName) {
-                  data = window.estadosDatosContratacion[key].data;
-                  stateName = key; // Usar el nombre original para mostrar
-                  break;
-              }
+      else if (window.estadosDatosContratacion) {
+        const normalizedName = normalizeStateName(stateName);
+        for (const key in window.estadosDatosContratacion) {
+          if (normalizeStateName(key) === normalizedName) {
+            data = window.estadosDatosContratacion[key].data;
+            stateName = key; // Usar el nombre original para mostrar
+            break;
           }
+        }
       }
       
       if (data) {
-          methodsChart.data.datasets[0].data = data;
-          methodsChart.update();
-          regionTitle.textContent = `Datos de ${stateName}`;
+        window.methodsChart.data.datasets[0].data = data;
+        window.methodsChart.update();
+        regionTitle.textContent = `Datos de ${stateName}`;
       } else {
-          // Si no hay datos, volver a los datos nacionales
-          methodsChart.data.datasets[0].data = window.methodsDataNacional.datasets[0].data;
-          methodsChart.update();
-          regionTitle.textContent = "Datos a nivel nacional";
+        // Si no hay datos específicos, usar datos nacionales por defecto
+        window.methodsChart.data.datasets[0].data = [45, 25, 20, 10];
+        window.methodsChart.update();
+        regionTitle.textContent = `Datos de ${stateName} (estimados)`;
       }
-  } else {
-      // Si no se pasa nombre, mostrar datos nacionales
-      methodsChart.data.datasets[0].data = window.methodsDataNacional.datasets[0].data;
-      methodsChart.update();
+    } else {
+      // Sin estado seleccionado: mostrar datos nacionales
+      window.methodsChart.data.datasets[0].data = [45, 25, 20, 10];
+      window.methodsChart.update();
       regionTitle.textContent = "Datos a nivel nacional";
+    }
   }
-}
 
 /**
  * Actualiza la tabla de contratos recientes según el estado seleccionado

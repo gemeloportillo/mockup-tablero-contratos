@@ -102,8 +102,12 @@ function initCompanyContractsChart(data) {
 */
 
 /**
-* Crea o actualiza el gráfico de métodos de contratación
+* Crea o actualiza el gráfico de métodos de contratación con porcentajes visibles
 * @param {Array} data - Datos de métodos de contratación
+*/
+/**
+* Versión simplificada para crear o actualizar el gráfico de métodos de contratación
+* Reemplaza la función initProcurementMethodChart completa
 */
 function initProcurementMethodChart(data) {
   try {
@@ -175,14 +179,29 @@ function initProcurementMethodChart(data) {
               callbacks: {
                 label: function(context) {
                   const label = context.label || '';
-                  const value = context.parsed || 0;
-                  return `${label}: ${value}%`;
+                  const value = context.raw || 0;
+                  const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                  const percentage = ((value / total) * 100).toFixed(1);
+                  return `${label}: ${value} (${percentage}%)`;
                 }
               }
             }
           }
         }
       });
+    }
+    
+    // Guardar referencia para que sea accesible desde otros módulos
+    if (!window.methodsDataNacional) {
+      window.methodsDataNacional = {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: backgroundColors,
+          hoverBackgroundColor: hoverColors,
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }]
+      };
     }
   } catch (error) {
     console.error('Error al inicializar el gráfico de métodos de contratación:', error);
